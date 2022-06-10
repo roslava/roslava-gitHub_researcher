@@ -1,0 +1,96 @@
+@import 'src/global_styles/colors.scss';
+
+.block {
+  background-color: #ffffff;
+  display: flex;
+  min-width: 100%;
+  flex-wrap: wrap;
+  margin: -15px;
+  padding: 15px 15px 0;
+  box-shadow: 6px 6px 20px -16px rgba(34, 60, 80, 0.2);
+  @media (max-width: 1440px) {
+    box-shadow: 6px 6px 20px -16px rgba(0, 0, 0, 0);
+  }
+}
+
+.buttons {
+  display: flex;
+  min-width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: fit-content !important;
+  padding: 0;
+}
+
+.buttons > ul {
+  padding-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+}
+
+.bottomwrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.buttonswrapper {
+  display: flex;
+  min-height: 82px;
+  height: 82px;
+  flex: 1 1 auto !important;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 0;
+  margin-top: 15px;
+  min-width: 100%;
+}
+
+.dropdownwrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: 15px;
+  flex: 1 1 auto !important;
+  position: absolute;
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+
+.searchDetails{
+  position: absolute;
+  display: flex;
+  right: 15px;
+  bottom: 30px;
+  font-size: 12px;
+  text-align: right;
+
+   @media (max-width: 700px) {
+    display: none;
+  }
+}
+
+.searchDetails p{
+  line-height: 19px !important;
+  margin:0!important;
+  padding: 0!important;
+  color: $color-black;
+}
+
+.searchDetails span{
+font-weight: 700;
+}
+
+
+.delete{
+  font-weight: 700;
+  color: rgba(62, 70, 73, 0.94);
+  transition: color .3s;
+  cursor: pointer;
+}
+
+.delete:hover{
+  font-weight: 700;
+  color: rgba(19, 28, 33, 0.94);
+}

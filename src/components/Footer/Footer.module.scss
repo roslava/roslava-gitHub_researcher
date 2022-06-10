@@ -1,0 +1,24 @@
+@import 'src/global_styles/colors.scss';
+
+.block {
+  display: flex;
+  margin-top: 30px;
+  background-color: $color-blue;
+  flex: 0 0 auto;
+  align-self: end;
+  justify-self: flex-end;
+  height: 60px;
+  align-items: center;
+  @media (max-width: 1440px) {
+    margin-top: 0;
+  }
+  @media (max-width: 700px) {
+    height: 30px;
+    margin-top: 0;
+  }
+}
+
+.content {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}

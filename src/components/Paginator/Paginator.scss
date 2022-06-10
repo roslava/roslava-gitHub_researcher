@@ -1,0 +1,54 @@
+@import 'src/global_styles/colors.scss';
+
+.paginationBttns{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.paginationBttns a{
+  width: 52px !important;
+  height: 52px !important;
+  display: flex;
+  padding:10px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  border:1px solid $color-grey-dark;
+  border-left: 0;
+  color: $color-black;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.paginationBttns a:hover{
+ color: #ffffff;
+  background-color: $color-blue;
+}
+
+.previousBttn{
+  display: flex;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  border:1px solid $color-grey-dark !important;
+}
+
+.nextBttn{
+  display: flex;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-left: 0 !important;
+}
+
+.paginationDisabled{
+  display: flex;
+
+}
+.paginationActive a{
+  display: flex;
+  color: #ffffff;
+  background-color: $color-blue;
+}

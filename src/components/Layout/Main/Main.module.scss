@@ -1,0 +1,16 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto !important;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  flex-wrap: wrap;
+  @media (max-width: 1440px) {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}

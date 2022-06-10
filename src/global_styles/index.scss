@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import "sanitize.css";
+@import "normalize.css";
+@import 'src/global_styles/colors.scss';
+
+body, html {
+  background-color: $color-grey-light;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin: 0 !important;
+  padding: 0 !important;
+  @media (max-width: 1440px) {
+    background-color: #ffffff;
+  }
+}
+
+header {
+  padding-top: 30px;
+  @media (max-width: 1440px) {
+    padding-top: 0;
+  }
+}
+
+.wrapper, main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto !important;
+}
+
+.search-button {
+  display: flex;
+  height: 68px;
+  max-width: 68px;
+  width: 68px;
+  background-color: $color-blue;
+  color: #ffffff;
+  position: relative;
+  border-radius: 0 1px 1px 0 !important;
+  border: 0;
+}
+
+.search-button:hover {
+  background-color: $color-blue-dark !important;
+}
+
+.search-button::after {
+  content: url('./assets/loupe.svg');
+  position: absolute;
+  left: 13%;
+  top: 22%;
+}
+
+input, .p-autocomplete-input, .p-inputtext, .p-component {
+  outline: none !important;
+  border: 0;
+  border-radius: 1px 0 0 1px !important;
+  box-shadow: none;
+}
+
+.p-inputtext {
+  display: flex !important;
+  height: 68px !important;
+  background-color: #ffffff;
+  flex: 1 1 auto !important;
+  font-size: 22px;
+  color: $color-black;
+  outline: none;
+  padding: 20px 20px 22px;
+}
+
+.p-autocomplete-input {
+  display: flex !important;
+  flex: 1 1 auto !important;
+}
+
+.p-component {
+  display: flex !important;
+  flex: 1 1 auto !important;
+}
+
+.p-inputtext:enabled:focus {
+  outline: none !important;
+  border: 0;
+  box-shadow: none;
+}
+
+.p-inputtext::placeholder {
+  color: $color-black;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@keyframes p-progress-spinner-color {
+  100%,
+  0% {
+    stroke: $color-blue;
+  }
+  40% {
+    stroke: $color-blue-light;
+  }
+  66% {
+    stroke: $color-blue;
+  }
+  80%,
+  90% {
+    stroke: $color-blue-light;
+  }
+}
+
+.pi-spin::before {
+  color: $color-blue !important;
+}
+
+.Paginator_wrapper__lYY45 {
+  height: 39px;
+  display: block;
+}
+
+
+//.p-autocomplete-panel p-component p-connected-overlay-enter-done
+
+.p-connected-overlay-enter-done{
+  box-shadow: 6px 10px 20px 0px rgba(34, 60, 80, 0.2);
+}

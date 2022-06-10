@@ -1,0 +1,27 @@
+@import 'src/global_styles/colors.scss';
+
+.section {
+  display: flex;
+  min-width: 100%;
+}
+
+.block {
+  display: flex;
+  min-width: 100%;
+  background-color: $color-grey;
+  align-items: center;
+  padding: 30px;
+  @media (max-width: 1440px) {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  height: fit-content;
+border: solid $color-grey-dark 1px;
+  justify-content: space-between;
+
+}
