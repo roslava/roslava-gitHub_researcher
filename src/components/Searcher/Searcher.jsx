@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom';
 import {getRepositories} from '../../api/RepositoryApi';
 import Container from "../Layout/Container/Container";
 import classes from "./Searcher.module.scss";
-import Helpers from "../../Helpers/Helpers";
+import Helpers from "../../helpers/Helpers";
 
 
 const Searcher = ({

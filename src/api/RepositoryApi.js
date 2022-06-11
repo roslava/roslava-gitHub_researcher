@@ -1,6 +1,6 @@
 import axios from "axios";
 import ReactPaginate from "react-paginate";
-import Helpers from '../Helpers/Helpers'
+import Helpers from '../helpers/Helpers'
 import {
     updateErrorState,
     updateFilteredRepos,
@@ -21,12 +21,13 @@ export const getRepositories = (inputValue) => {
 
                     store.dispatch(updateWarningState("Не найдено ни одного репозитория. Попробуйте еще раз."));
                 }
+
                 store.dispatch(updateErrorState(null));
                 store.dispatch(updateRepositories(response.data.items));
                 store.dispatch(updateFilteredRepos(response.data.items));
                 Helpers.setLocalStorageData('repositories', response.data.items)
 
-                console.log(response.data)
+
                 return response.data.items;
             } else {
                 if (response.data.message) {

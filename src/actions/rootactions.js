@@ -47,6 +47,28 @@ export const updateSelectedRepository = (repo) => ({
 	selectedRepo: repo
 });
 
+
+
+
+
+
+
+export const deleteRepository = (id) => ({
+	type: "DELETE_REPOSITORY",
+	// id: id
+	id
+});
+
+
+
+
+
+
+
+
+
+
+
 export const updateFilterValue = (filterValue) => ({
 	type: "UPDATE_FILTER_VALUE",
 	filterVal: filterValue
@@ -62,14 +84,14 @@ export const hideCommentForm = (commentData) => ({
 	testData: commentData
 });
 
+// export const setStargazers = (stargazers) => ({
+// 	type: "SET_STARGAZERS",
+// 	setStar: stargazers
+// });
+
+export const setCommentFormShow = (showVal) => ({
+	type: "SET_COMMENT_FORM_SHOW",
+	commentFormShow: showVal
+});
 
 
-// export const showCommentForm = (commentData) => ({
-// 	type: "SHOW_COMMENT_FORM",
-// 	showForm: true
-// });
-//
-// export const hideCommentForm = (commentData) => ({
-// 	type: "HIDE_COMMENT_FORM",
-// 	hideForm: false
-// });

@@ -42,7 +42,7 @@ const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepos
     );
 
 
-console.log( hideCommentForm())
+// console.log( hideCommentForm())
 
 
 

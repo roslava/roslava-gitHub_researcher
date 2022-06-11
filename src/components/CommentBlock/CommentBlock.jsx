@@ -15,7 +15,7 @@ import {CgClose} from 'react-icons/cg';
 function CommentBlock({commentData}) {
 
     function commentFormHandler(){
-        console.log(commentData)
+        // console.log(commentData)
     }
 
 

@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom";
 import {ProgressSpinner} from 'primereact/progressspinner';
 import MessageContainer from '../../containers/MessageContainer';
 import Paginator from '../Paginator/Paginator'
-import Helpers from '../../Helpers/Helpers'
+import Helpers from '../../helpers/Helpers'
 import classes from './Repositories.module.scss';
 import "../../global_styles/table.scss";
 import {clearMessages} from "../../actions/rootactions";
@@ -18,7 +18,8 @@ const Repositories = ({
                           errorMessage,
                           clearMessages,
                           updateErrorState,
-                          inputVal
+                          inputVal,
+
                       }) => {
 
     let navigate = useHistory();

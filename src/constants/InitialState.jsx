@@ -14,7 +14,11 @@ const INITIALSTATE = {
 		},
 		history: []
 	},
-	recentlyViewed: []
+	recentlyViewed: [],
+	stargazers:1,
+	commentFormShow: false,
+	showVal:true,
+	setStar:true
 }
 
 export { INITIALSTATE };

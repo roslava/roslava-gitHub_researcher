@@ -1,4 +1,5 @@
 import * as lodash from "lodash";
+import {setCommentFormShow} from "../actions/rootactions";
 
 function createReducer(initialState, handlers) {
     return function reducer(state = initialState, action) {
@@ -84,9 +85,40 @@ const handlers = {
     UPDATE_SELECTED_REPOSITORY: (state, action) => {
         const repo = action.selectedRepo;
         return Object.assign({}, state, {
-            selectedRepo: repo,
-        });
+            selectedRepo: repo
+         });
     },
+
+
+
+
+
+
+
+
+    DELETE_REPOSITORY: (state, action) => {
+
+      // const id = action.id
+
+        return Object.assign({}, state,{
+            repositories: state.repositories.filter(repository => repository.id !== action.id)})
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     UPDATE_FILTER_VALUE: (state, action) => {
         let newQueryState = lodash.cloneDeep(state.searchQuery);
         const newVal = action.filterVal;
@@ -95,12 +127,29 @@ const handlers = {
             searchQuery: newQueryState,
         });
     },
-    // UPDATE_REPOSITORIES: (state, action) => {
-    //     const repos = action.repositories;
+
+    // SET_STARGAZERS: (state  = initialState, action) =>{
+    //     const stargazers = action.setStar;
+    //
     //     return Object.assign({}, state, {
-    //         repositories: repos,
+    //         setStar: stargazers + 1
     //     });
     // },
+
+
+
+
+    SET_COMMENT_FORM_SHOW: (state = initialState, action) => {
+        const showVal = action.commentFormShow;
+        return Object.assign({}, state, {
+            commentFormShow: showVal
+        });
+    },
+
+
+
+
+
     SHOW_COMMENT_FORM: (state = false, action) => {
         switch (action.type) {
             case "SHOW_COMMENT_FORM":

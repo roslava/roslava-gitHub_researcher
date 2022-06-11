@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import ReactPaginate from "react-paginate";
 import classes from './Paginator.module.scss';
 import './Paginator.scss';
-import Card from "../Card/Card";
+import Card from "../../containers/CardContainer";
 import {BsChevronLeft} from 'react-icons/bs';
 import {BsChevronRight} from 'react-icons/bs';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import Helpers from '../../Helpers/Helpers'
-import {clearMessages, updateRepositories} from "../../actions/rootactions";
+import Helpers from '../../helpers/Helpers'
+import {clearMessages,  updateRepositories} from "../../actions/rootactions";
 
 
 const Paginator = ({repositories, selectRepository, inputVal, dataFrom}) => {
@@ -40,7 +40,7 @@ const Paginator = ({repositories, selectRepository, inputVal, dataFrom}) => {
         }else if(dataFrom === 'fromLocalStorage'){
             return (<div><p>Недавно вы искали <span>{Helpers.getLocalStorageData('searchInputValue')}</span></p>
                 <p>Количество найденных репозиториев: <span>{Helpers.getLocalStorageData('repositories').length}</span></p>
-                {/*<p className={classes.delete} onClick={()=>{clearAllRepos()}}>Удалить результаты поиска</p>*/}
+                {/*<p className={classes.delete} onClick={()=>{localStorage.clear()}}>Удалить результаты поиска</p>*/}
             </div>)
         }
       }
@@ -58,7 +58,7 @@ const Paginator = ({repositories, selectRepository, inputVal, dataFrom}) => {
 
                     return (
 
-                        <Card repo={repo} action={selectRepository} actionProps={repo} key={index}/>
+                        <Card dataFrom={dataFrom} repositories={repositories} repo={repo} action={selectRepository} actionProps={repo} key={index}/>
                     );
                 })}
 

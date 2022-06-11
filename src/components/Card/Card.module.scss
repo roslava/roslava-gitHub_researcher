@@ -25,7 +25,7 @@
   -webkit-box-shadow: 3px 4px 8px 0 rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 3px 4px 8px 0 rgba(34, 60, 80, 0.2);
   box-shadow: 3px 4px 8px 0 rgba(34, 60, 80, 0.2);
-  cursor: pointer;
+  cursor: auto;
   position: relative;
 }
 
@@ -78,8 +78,14 @@ h3 {
   display: flex;
   align-items: center;
   margin-right: 25px;
-  color: $color-black;
+  color: #1D2A2FEF;
 }
+
+.views:hover, .stars:hover {
+ color: rgba(49, 69, 89, 0.94);
+}
+
+
 
 .views > svg, .stars > svg {
   margin-right: 8px;
@@ -118,5 +124,30 @@ h3 {
   color: #ffffff;
   background-color: $color-blue;
 }
+
+.removeHolder{
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.remove{
+ cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: #565656;
+  transition: color .4s ;
+
+}
+
+.remove:hover{
+  color: #212121;
+
+}
+
+
+
+
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchContainer from '../containers/SearchContainer';
 import RepositoriesContainer from '../containers/RepositoriesContainer';
+
 import Main from '../components/Layout/Main/Main'
 
 const Home = () =>
