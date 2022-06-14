@@ -52,17 +52,6 @@ export const updateFilterValue = (filterValue) => ({
     filterVal: filterValue
 });
 
-export const showCommentForm = (id) => ({
-    type: "SHOW_COMMENT_FORM",
-    id: id
-});
-
-export const hideCommentForm = (id) => ({
-    type: "HIDE_COMMENT_FORM",
-    id: id
-});
-
-
 export const deleteRepository = (id) => ({
     type: "DELETE_REPOSITORY",
     id: id
@@ -70,5 +59,10 @@ export const deleteRepository = (id) => ({
 
 export const setCommentFormShow = (repoId, showVal) => ({
     type: "SET_COMMENT_FORM_SHOW",
-    payload: {repoId: repoId, isCommentFormShow: showVal}
+    payload: {repoId: repoId, isCommentFormVisible: showVal}
+});
+
+export const setCommentFormHide = (repoId, boolVal) => ({
+    type: "SET_COMMENT_FORM_HIDE",
+    payload: {repoId: repoId, isCommentFormVisible: boolVal}
 });

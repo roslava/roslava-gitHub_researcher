@@ -8,7 +8,6 @@ import {BsChevronRight} from 'react-icons/bs';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import Helpers from '../../helpers/Helpers'
-import {clearMessages,  updateRepositories} from "../../actions/rootactions";
 
 
 const Paginator = ({repositories, selectRepository, inputVal, dataFrom}) => {

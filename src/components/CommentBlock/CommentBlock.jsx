@@ -1,22 +1,26 @@
 import React from 'react';
-import {useState} from "react";
 import classes from './CommentBlock.module.scss';
-
 import {RiSendPlane2Fill} from 'react-icons/ri';
 import {CgClose} from 'react-icons/cg';
+import Button from "../Button/Button";
 
 
 
 
 
 
+function CommentBlock({curRepoId, setCommentFormHide}) {
 
-
-function CommentBlock({commentData}) {
 
     function commentFormHandler(){
-        // console.log(commentData)
+
     }
+
+console.log('l', curRepoId)
+
+    // const toggleChanger = () => {
+    //     setCommentFormHide(repoId, false);
+    // }
 
 
 
@@ -40,8 +44,9 @@ function CommentBlock({commentData}) {
                                placeholder='Ваше имя'/>
                     </div>
                     <div className={classes.buttonsholder}>
-                        <button className={classes.button} type='submit'><RiSendPlane2Fill size={20}/></button>
-                        <div className={classes.button}><CgClose size={23}/></div>
+                        <button  className={classes.button} type='submit'><RiSendPlane2Fill size={20}/></button>
+                        <div onClick={()=>setCommentFormHide(curRepoId, false)} className={classes.button}><CgClose size={23}/></div>
+                        {/*<Button btnType="comments" action={toggleChanger}/>*/}
                     </div>
                 </form>
             </div>

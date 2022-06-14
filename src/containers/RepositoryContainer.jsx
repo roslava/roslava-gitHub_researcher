@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
 import {
-	hideCommentForm,
-	showCommentForm,
 	updateFilteredRepos,
 	updateFilterValue,
 	updateLoadingState,
@@ -32,9 +30,6 @@ const mapDispatchToProps = (dispatch) => ({
 	updateSearchHistory: (inputValue) => dispatch(updateSearchHistory(inputValue)),
 	updateSelectedRepository: (repo) => dispatch(updateSelectedRepository(repo)),
 	updateFilterValue: (filterValue) => dispatch(updateFilterValue(filterValue)),
-	showCommentForm:(commentData) => dispatch(showCommentForm(commentData)),
-	// hideCommentForm:(commentData) => dispatch(hideCommentForm(commentData)),
-	hideCommentForm:(commentData) => dispatch(hideCommentForm(commentData)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Repository);

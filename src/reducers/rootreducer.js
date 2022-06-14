@@ -116,14 +116,26 @@ const handlers = {
                 repository => repository.id === repoId
                     ? {
                         ...repository,
-                        isCommentFormShow: !showVal
+                        isCommentFormVisible: !showVal
                     }
                     : repository
             ),
         }
     },
+
+    SET_COMMENT_FORM_HIDE: (state = false, action) => {
+        const repoId = action.payload.repoId
+        const boolVal = action.payload.showVal
+        return Object.assign({}, state, {
+            repositories: state. repositories.map((repository) => {
+                if(repository.id === repoId ) {
+                    repository.isCommentFormVisible = boolVal
+                }
+                return repository;
+            })
+        })
+    },
 }
 
 
 export default createReducer(initialState, handlers);
-// export default function repoReducer(){return createReducer(initialState, handlers);}

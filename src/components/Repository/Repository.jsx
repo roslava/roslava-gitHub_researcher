@@ -13,7 +13,7 @@ import {useHistory} from "react-router-dom";
 import classes from './Repository.module.scss'
 import { MdOutlineArrowBack } from 'react-icons/md';
 import { DiGithubAlt } from 'react-icons/di';
-import {hideCommentForm, showCommentForm} from "../../actions/rootactions";
+
 
 
 const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepository}) => {
@@ -38,11 +38,11 @@ const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepos
                 }
             })
         },
-        [owner, name, updateLoadingState, updateSelectedRepository, hideCommentForm, showCommentForm],
+        [owner, name, updateLoadingState, updateSelectedRepository],
     );
 
 
-// console.log( hideCommentForm())
+
 
 
 

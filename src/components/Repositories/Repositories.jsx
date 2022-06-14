@@ -6,7 +6,7 @@ import Paginator from '../Paginator/Paginator'
 import Helpers from '../../helpers/Helpers'
 import classes from './Repositories.module.scss';
 import "../../global_styles/table.scss";
-import {clearMessages} from "../../actions/rootactions";
+import {clearMessages, updateFilteredRepos, updateRepositories} from "../../actions/rootactions";
 
 const Repositories = ({
                           loading,
@@ -33,9 +33,15 @@ const Repositories = ({
         clearMessages();
         navigate.push(`/repo/${selectedRepo.owner['login']}/${selectedRepo.name}`);
     }
+
+    // if(window.performance && Helpers.getLocalStorageData('repositories').length){
+    //     updateRepositories(Helpers.getLocalStorageData('repositories'))
+    //     updateFilteredRepos(Helpers.getLocalStorageData('repositories'))
+    // }
+
+
+
 // ***
-
-
 
     if (!loading && (!warningMessage || !errorMessage) && (repositories && repositories.length > 0)) {
         return (<Paginator dataFrom='fromStore' inputVal={inputVal} repositories={filteredRepos}
@@ -60,7 +66,7 @@ const Repositories = ({
             );
         } else {
             return (
-                <Paginator  dataFrom='fromLocalStorage' inputVal={inputVal}
+                <Paginator dataFrom='fromLocalStorage' inputVal={inputVal}
                            repositories={Helpers.getLocalStorageData('repositories')}
                            selectRepository={selectRepository}/>
             );

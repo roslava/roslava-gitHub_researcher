@@ -17,6 +17,9 @@ export const getRepositories = (inputValue) => {
     return request
         .then((response) => {
             if (response.status >= 200 && response.status < 300) {
+
+
+
                 if (response.data.items.length === 0) {
 
                     store.dispatch(updateWarningState("Не найдено ни одного репозитория. Попробуйте еще раз."));
@@ -24,7 +27,7 @@ export const getRepositories = (inputValue) => {
 
                 const data = response.data.items
                 data.forEach((item, index) => {
-                    item.isCommentFormShow = false
+                    item.isCommentFormVisible = false
                     item.comments = []
                 })
 

@@ -7,8 +7,10 @@ class Helpers {
 
     static setLocalStorageData(key, source) {
 
-    if (source.length !== 0) {
+    if (source) {
+        if (source.length !== 0){
     localStorage.setItem(key, JSON.stringify(source));
+        }
 }
 
 
