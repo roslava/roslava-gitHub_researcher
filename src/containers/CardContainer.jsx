@@ -1,18 +1,9 @@
 import { connect } from "react-redux";
 import {
-    setCommentFormShow,
-    deleteRepository,
-    hideCommentForm,
-    showCommentForm,
-    updateFilteredRepos,
-    updateFilterValue,
-    updateLoadingState,
-    updateQueryInput,
-    updateRepositories,
-    updateSearchHistory,
-    updateSelectedRepository
-  } from "../actions/rootactions";
+    setCommentFormShow, deleteRepository,
+    } from "../actions/rootactions";
 import Card from "../components/Card/Card";
+
 
 
 
@@ -21,7 +12,12 @@ const mapStateToProps = (state) => (
 
     {
 
-        commentFormShow: state.commentFormShow,
+
+        repoId: state.repoId,
+        showVal: state.showVal,
+        id: state.id,
+        isCommentFormShow: state.isCommentFormShow
+
 
     }
 
@@ -31,8 +27,12 @@ const mapStateToProps = (state) => (
 
 
 const mapDispatchToProps = (dispatch) => ({
-    setCommentFormShow: (showVal) => dispatch(setCommentFormShow (showVal) ),
-    deleteRepository: (id) => dispatch(deleteRepository(id))
+    setCommentFormShow: (repoId, showVal) => dispatch(setCommentFormShow (repoId, showVal) ),
+    deleteRepository: (id) => dispatch(deleteRepository(id)),
+
+
+
+
 
 });
 

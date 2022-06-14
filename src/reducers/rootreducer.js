@@ -86,38 +86,8 @@ const handlers = {
         const repo = action.selectedRepo;
         return Object.assign({}, state, {
             selectedRepo: repo
-         });
+        });
     },
-
-
-
-
-
-
-
-
-    DELETE_REPOSITORY: (state, action) => {
-
-      // const id = action.id
-
-        return Object.assign({}, state,{
-            repositories: state.repositories.filter(repository => repository.id !== action.id)})
-    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     UPDATE_FILTER_VALUE: (state, action) => {
         let newQueryState = lodash.cloneDeep(state.searchQuery);
@@ -128,37 +98,32 @@ const handlers = {
         });
     },
 
-    // SET_STARGAZERS: (state  = initialState, action) =>{
-    //     const stargazers = action.setStar;
-    //
-    //     return Object.assign({}, state, {
-    //         setStar: stargazers + 1
-    //     });
-    // },
+    DELETE_REPOSITORY: (state, action) => {
 
+        const id = action.id
 
-
-
-    SET_COMMENT_FORM_SHOW: (state = initialState, action) => {
-        const showVal = action.commentFormShow;
         return Object.assign({}, state, {
-            commentFormShow: showVal
-        });
+            repositories: state.repositories.filter(repository => repository.id !== id)
+        })
     },
 
-
-
-
-
-    SHOW_COMMENT_FORM: (state = false, action) => {
-        switch (action.type) {
-            case "SHOW_COMMENT_FORM":
-                return true;
-            case "HIDE_COMMENT_FORM":
-                return false;
+    SET_COMMENT_FORM_SHOW: (state, action) => {
+        const repoId = action.payload.repoId
+        const showVal = action.payload.showVal
+        return {
+            ...state,
+            repositories: state.repositories.map(
+                repository => repository.id === repoId
+                    ? {
+                        ...repository,
+                        isCommentFormShow: !showVal
+                    }
+                    : repository
+            ),
         }
-    }
+    },
 }
+
 
 export default createReducer(initialState, handlers);
 // export default function repoReducer(){return createReducer(initialState, handlers);}

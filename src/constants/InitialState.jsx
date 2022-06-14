@@ -17,7 +17,7 @@ const INITIALSTATE = {
 	recentlyViewed: [],
 	stargazers:1,
 	commentFormShow: false,
-	showVal:true,
+	showVal:false,
 	setStar:true
 }
 

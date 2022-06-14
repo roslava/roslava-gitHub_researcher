@@ -22,10 +22,16 @@ export const getRepositories = (inputValue) => {
                     store.dispatch(updateWarningState("Не найдено ни одного репозитория. Попробуйте еще раз."));
                 }
 
+                const data = response.data.items
+                data.forEach((item, index) => {
+                    item.isCommentFormShow = false
+                    item.comments = []
+                })
+
                 store.dispatch(updateErrorState(null));
-                store.dispatch(updateRepositories(response.data.items));
-                store.dispatch(updateFilteredRepos(response.data.items));
-                Helpers.setLocalStorageData('repositories', response.data.items)
+                store.dispatch(updateRepositories(data));
+                store.dispatch(updateFilteredRepos(data));
+                Helpers.setLocalStorageData('repositories', data)
 
 
                 return response.data.items;

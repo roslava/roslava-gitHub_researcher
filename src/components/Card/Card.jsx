@@ -13,6 +13,7 @@ import Helpers from '../../helpers/Helpers'
 
 
 
+
 const Card = ({
                   repo,
                   action,
@@ -21,13 +22,15 @@ const Card = ({
                    setCommentFormShow,
                   deleteRepository,
                   repositories,
-                  dataFrom
+                  dataFrom,
+                  showVal
+
               }) =>{
 
     let wrapClasses = [classes.wrapper, classes.border]
 
     const toggleChanger = () =>{
-        return setCommentFormShow(true)
+        return setCommentFormShow(repo.id, true)
     }
 
     const  handlerDeleteRepository =  ()=>{
@@ -72,7 +75,7 @@ const Card = ({
                     <TextInput textInputType="comments" placeholder="Коментарий к проекту"/>
                     <Button btnType="comments" action={toggleChanger} />
 
-                    {commentFormShow ? <CommentBlock/> : null}
+                    {repo.isCommentFormShow ? <CommentBlock/> : null}
 
                 </div>
 
