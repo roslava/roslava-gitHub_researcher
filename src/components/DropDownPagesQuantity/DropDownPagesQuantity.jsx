@@ -8,14 +8,14 @@ import 'react-dropdown/style.css';
 const DropDownPagesQuantity = ({setQuantityOnPage,  repoQuantityPerPage}) =>{
 
     const options = [
-        6, 9, 12
+        '6', '9', '12'
     ]
 
    return(
        <div className={classes.dropdownwrapper}>
            <Dropdown options={options}
                      onChange={(options) => {
-                         setQuantityOnPage(options.value)
+                         setQuantityOnPage(parseInt(options.value))
                      }}
                      placeholder={repoQuantityPerPage}/>
        </div>

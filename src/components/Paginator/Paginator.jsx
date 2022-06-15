@@ -7,22 +7,26 @@ import {BsChevronLeft} from 'react-icons/bs';
 import {BsChevronRight} from 'react-icons/bs';
 import Helpers from '../../helpers/Helpers'
 import DropDownPagesQuantity from "../../containers/DropDownPagesQuantityContainer";
-import {setPageNumber} from "../../actions/rootactions";
-
-
 
 
 
 const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuantityPerPage, setPageNumber,currentPageNumber }) => {
     const repos = repositories.slice(0, 30);
     const pageNumber = currentPageNumber
-    //pageNumber это currentPageNumber и установить setPageNumber
-
-
-    // const reposPerPage = repoQuantityPerPage;
-    // console.log('f', typeof (repoQuantityPerPage))
     const reposPerPage = repoQuantityPerPage;
     const pagesVisited = pageNumber * reposPerPage;
+    console.log('количество репозиториев', repos.length)
+    console.log('количество репозиториев позади', pagesVisited)
+    console.log('количество репозиториев до + текущая страница', pagesVisited + reposPerPage)
+
+    console.log('количество страниц позади', currentPageNumber)
+    console.log('количество страниц позади', currentPageNumber)
+
+    if(pagesVisited + reposPerPage > repos.length){
+        const sss = repos.length % currentPageNumber
+        console.log('должна быть страница?',sss)
+    }
+
 
     const displayRepos = repos
         .slice(pagesVisited, pagesVisited + reposPerPage)
@@ -35,8 +39,9 @@ const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuan
     const pageCount = Math.ceil(repos.length / repoQuantityPerPage);
 
     const changePage = ({selected}) => {
-        setPageNumber(selected);
-    }
+            setPageNumber(selected);
+
+   }
 
 
 
