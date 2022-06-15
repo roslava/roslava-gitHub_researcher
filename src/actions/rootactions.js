@@ -66,3 +66,14 @@ export const setCommentFormHide = (repoId, boolVal) => ({
     type: "SET_COMMENT_FORM_HIDE",
     payload: {repoId: repoId, isCommentFormVisible: boolVal}
 });
+
+export const setQuantityOnPage = (repoQuantity) => ({
+    type: "SET_QUANTITY_REPOS_ON_PAGE",
+    payload:{repoQuantityPerPage: repoQuantity}
+});
+
+
+export const setPageNumber = (pageNumberVal) => ({
+    type: "SET_PAGE_NUMBER",
+    payload:{currentPageNumber: pageNumberVal}
+});

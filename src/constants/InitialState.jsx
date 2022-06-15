@@ -18,7 +18,8 @@ const INITIALSTATE = {
 	stargazers:1,
 	commentFormShow: false,
 	showVal:false,
-	setStar:true
+	setStar:true,
+	repoQuantityPerPage:6
 }
 
 export { INITIALSTATE };

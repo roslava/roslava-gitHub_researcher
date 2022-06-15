@@ -2,11 +2,10 @@ import React, {useEffect} from 'react';
 import {useHistory} from "react-router-dom";
 import {ProgressSpinner} from 'primereact/progressspinner';
 import MessageContainer from '../../containers/MessageContainer';
-import Paginator from '../Paginator/Paginator'
+import Paginator from '../../containers/PaginatorContainer'
 import Helpers from '../../helpers/Helpers'
 import classes from './Repositories.module.scss';
 import "../../global_styles/table.scss";
-import {clearMessages, updateFilteredRepos, updateRepositories} from "../../actions/rootactions";
 
 const Repositories = ({
                           loading,
@@ -19,7 +18,6 @@ const Repositories = ({
                           clearMessages,
                           updateErrorState,
                           inputVal,
-
                       }) => {
 
     let navigate = useHistory();
@@ -33,11 +31,6 @@ const Repositories = ({
         clearMessages();
         navigate.push(`/repo/${selectedRepo.owner['login']}/${selectedRepo.name}`);
     }
-
-    // if(window.performance && Helpers.getLocalStorageData('repositories').length){
-    //     updateRepositories(Helpers.getLocalStorageData('repositories'))
-    //     updateFilteredRepos(Helpers.getLocalStorageData('repositories'))
-    // }
 
 
 

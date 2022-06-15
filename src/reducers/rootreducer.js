@@ -135,7 +135,24 @@ const handlers = {
             })
         })
     },
+
+    SET_QUANTITY_REPOS_ON_PAGE: (state, action) => {
+        const repoQuantity = action.payload.repoQuantityPerPage
+        return Object.assign({}, state, {
+            repoQuantityPerPage: repoQuantity
+        })
+    },
+
+    SET_PAGE_NUMBER: (state=0, action) => {
+        const pageNumberVal = action.payload.currentPageNumber
+        return Object.assign({}, state, {
+            currentPageNumber: pageNumberVal
+        })
+    },
 }
+
+
+
 
 
 export default createReducer(initialState, handlers);

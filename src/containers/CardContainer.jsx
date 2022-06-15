@@ -6,7 +6,6 @@ import Card from "../components/Card/Card";
 
 
 const mapStateToProps = (state) => (
-
     {
         repoId: state.repoId,
         showVal: state.showVal,

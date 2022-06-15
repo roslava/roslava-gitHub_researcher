@@ -1,32 +1,42 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import ReactPaginate from "react-paginate";
 import classes from './Paginator.module.scss';
 import './Paginator.scss';
 import Card from "../../containers/CardContainer";
 import {BsChevronLeft} from 'react-icons/bs';
 import {BsChevronRight} from 'react-icons/bs';
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
 import Helpers from '../../helpers/Helpers'
+import DropDownPagesQuantity from "../../containers/DropDownPagesQuantityContainer";
+import {setPageNumber} from "../../actions/rootactions";
 
 
-const Paginator = ({repositories, selectRepository, inputVal, dataFrom}) => {
-    const [pageNumber, setPageNumber] = useState(0);
-    const repos = repositories.slice(0, 30)
-    const [quantityOnPage, setQuantityOnPage] = useState(6);
-    const reposPerPage = quantityOnPage;
+
+
+
+const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuantityPerPage, setPageNumber,currentPageNumber }) => {
+    const repos = repositories.slice(0, 30);
+    const pageNumber = currentPageNumber
+    //pageNumber это currentPageNumber и установить setPageNumber
+
+
+    // const reposPerPage = repoQuantityPerPage;
+    // console.log('f', typeof (repoQuantityPerPage))
+    const reposPerPage = repoQuantityPerPage;
     const pagesVisited = pageNumber * reposPerPage;
-    const displayRepos = repos.slice(pagesVisited, pagesVisited + reposPerPage);
-    const pageCount = Math.ceil(repos.length / reposPerPage);
+
+    const displayRepos = repos
+        .slice(pagesVisited, pagesVisited + reposPerPage)
+        .map((repo, index) => {
+            return (
+                <Card dataFrom={dataFrom} repositories={repositories} repo={repo} action={selectRepository} actionProps={repo} key={index}/>
+            );
+        });
+
+    const pageCount = Math.ceil(repos.length / repoQuantityPerPage);
+
     const changePage = ({selected}) => {
         setPageNumber(selected);
     }
-
-    const options = [
-        '6', '9', '11'
-    ]
-
-
 
 
 
@@ -44,31 +54,13 @@ const Paginator = ({repositories, selectRepository, inputVal, dataFrom}) => {
         }
       }
 
-
-
-
-
-
     return (
         <div className={classes.block}>
 
-            {
-                displayRepos.map((repo, index) => {
-
-                    return (
-
-                        <Card dataFrom={dataFrom} repositories={repositories} repo={repo} action={selectRepository} actionProps={repo} key={index}/>
-                    );
-                })}
+            {displayRepos}
 
             <div className={classes.bottomwrapper}>
-                <div className={classes.dropdownwrapper}>
-                    <Dropdown options={options}
-                              onChange={(options) => {
-                                  setQuantityOnPage(options.value)
-                              }}
-                              placeholder={quantityOnPage}/>
-                </div>
+                <DropDownPagesQuantity repos={repos}/>
                 <div className={classes.buttonswrapper}>
                     <ReactPaginate
                         previousLabel={<BsChevronLeft size={50}/>}
@@ -80,6 +72,7 @@ const Paginator = ({repositories, selectRepository, inputVal, dataFrom}) => {
                         nextLinkClassName={'nextBttn'}
                         disabledClassName={'paginationDisabled'}
                         activeClassName={'paginationActive'}
+                        pageRangeDisplayed={3}
                     />
                 </div>
 

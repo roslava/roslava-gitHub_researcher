@@ -8,7 +8,8 @@ import {
 	updateQueryInput,
 	updateRepositories,
 	updateSearchHistory,
-	updateSelectedRepository
+	updateSelectedRepository,
+	setQuantityOnPage
 
 } from "../actions/rootactions";
 import Repositories from "../components/Repositories/Repositories";
@@ -23,6 +24,7 @@ const mapStateToProps = (state) => ({
 	filterVal: state.searchQuery.filter,
 	warningMessage: state.warning,
 	errorMessage: state.error,
+	repoQuantityPerPage: state.repoQuantityPerPage
 
 });
 
@@ -36,6 +38,7 @@ const mapDispatchToProps = (dispatch) => ({
 	updateSelectedRepository: (repo) => dispatch(updateSelectedRepository(repo)),
 	updateFilterValue: (filterValue) => dispatch(updateFilterValue(filterValue)),
 	clearMessages: () => dispatch(clearMessages()),
+	setQuantityOnPage: (repoQuantity) => dispatch(setQuantityOnPage(repoQuantity))
 
 });
 
