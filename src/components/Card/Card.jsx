@@ -64,7 +64,7 @@ const Card = ({
                         setCommentFormShow(repo.id, true)
                     }}/>
 
-                    {repo.isCommentFormVisible ? <CommentBlock curRepoId={repo.id} /> : null}
+                    {repo.isCommentFormVisible ? <CommentBlock repoComments={repo.comments} curRepoId={repo.id} /> : null}
                 </div>
                 <div></div>
             </div>

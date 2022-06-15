@@ -2,7 +2,6 @@
 
 import React, {useCallback, useEffect, useState} from "react";
 import {ProgressSpinner} from 'primereact/progressspinner';
-import {Button} from 'primereact/button';
 import {Chip} from 'primereact/chip';
 import "../../global_styles/hero.scss";
 import "../../global_styles/messages.scss";
@@ -13,6 +12,8 @@ import {useHistory} from "react-router-dom";
 import classes from './Repository.module.scss'
 import { MdOutlineArrowBack } from 'react-icons/md';
 import { DiGithubAlt } from 'react-icons/di';
+import CommentsDisplay from '../CommentsDisplay/CommentsDisplay'
+
 
 
 
@@ -41,11 +42,6 @@ const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepos
         [owner, name, updateLoadingState, updateSelectedRepository],
     );
 
-
-
-
-
-
     useEffect(() => {
         if (!selectedRepo.id) {
             if (owner && name) {
@@ -63,11 +59,11 @@ const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepos
     }
 
 
+
+
     if (!loading && (selectedRepo && selectedRepo.id)) {
         return (
             <Container>
-
-
                 <div className={classes.block}>
                     <button onClick={history.goBack} className={classes.back}> <span><MdOutlineArrowBack size={'20px'} fill={'#00A3FF'} /></span> Вернуться на страницу поиска</button>
                     <div className={classes.content}>
@@ -104,7 +100,7 @@ const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepos
                     </div>
                     <button onClick={goBack} className={classes.back}> <span><MdOutlineArrowBack size={'20px'} fill={'#00A3FF'} /></span> Вернуться на страницу поиска</button>
                             </div>
-
+              <CommentsDisplay selectedRepo={selectedRepo}/>
 
             </Container>
 

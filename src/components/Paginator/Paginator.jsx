@@ -10,21 +10,23 @@ import DropDownPagesQuantity from "../../containers/DropDownPagesQuantityContain
 
 
 
-const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuantityPerPage, setPageNumber,currentPageNumber }) => {
+const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuantityPerPage, setPageNumber, currentPageNumber }) => {
     const repos = repositories.slice(0, 30);
     const pageNumber = currentPageNumber
     const reposPerPage = repoQuantityPerPage;
     const pagesVisited = pageNumber * reposPerPage;
-    console.log('количество репозиториев', repos.length)
-    console.log('количество репозиториев позади', pagesVisited)
-    console.log('количество репозиториев до + текущая страница', pagesVisited + reposPerPage)
+    // console.log('количество репозиториев', repos.length)
+    // console.log('количество репозиториев позади', pagesVisited)
+    // console.log('количество репозиториев до + текущая страница', pagesVisited + reposPerPage)
+    //
+    // console.log('количество страниц позади', currentPageNumber)
+    // console.log('eeee', currentPageNumber)
 
-    console.log('количество страниц позади', currentPageNumber)
-    console.log('количество страниц позади', currentPageNumber)
+
 
     if(pagesVisited + reposPerPage > repos.length){
         const sss = repos.length % currentPageNumber
-        console.log('должна быть страница?',sss)
+        // console.log('должна быть страница?',sss)
     }
 
 
@@ -36,12 +38,23 @@ const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuan
             );
         });
 
+    function pageCount_(repoQuantityPerPage){
+        return  Math.ceil(repos.length / repoQuantityPerPage);
+    }
+
     const pageCount = Math.ceil(repos.length / repoQuantityPerPage);
 
     const changePage = ({selected}) => {
             setPageNumber(selected);
 
    }
+
+    const onPageActive = ({selected}) => {
+        setPageNumber(selected);
+
+    }
+
+    // onPageActive?(selectedItem: { selected: number }): void;
 
 
 
@@ -65,19 +78,24 @@ const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuan
             {displayRepos}
 
             <div className={classes.bottomwrapper}>
+
                 <DropDownPagesQuantity repos={repos}/>
+
                 <div className={classes.buttonswrapper}>
                     <ReactPaginate
                         previousLabel={<BsChevronLeft size={50}/>}
                         nextLabel={<BsChevronRight size={50}/>}
-                        pageCount={pageCount}
+                        pageCount={pageCount_(repoQuantityPerPage)}
                         onPageChange={changePage}
+                        onPageActive={onPageActive }
                         containerClassName={'paginationBttns'}
                         previousLinkClassName={'previousBttn'}
                         nextLinkClassName={'nextBttn'}
                         disabledClassName={'paginationDisabled'}
                         activeClassName={'paginationActive'}
                         pageRangeDisplayed={3}
+                        breakLabel={'ddd'}
+                        // marginPagesDisplayed={22}
                     />
                 </div>
 

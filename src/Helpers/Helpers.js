@@ -7,13 +7,11 @@ class Helpers {
 
     static setLocalStorageData(key, source) {
 
-    if (source) {
-        if (source.length !== 0){
-    localStorage.setItem(key, JSON.stringify(source));
+        if (source) {
+            if (source.length !== 0) {
+                localStorage.setItem(key, JSON.stringify(source));
+            }
         }
-}
-
-
 
 
     }
@@ -25,8 +23,8 @@ class Helpers {
         return JSON.parse(localStorage.getItem(key));
     }
 
-    static idGenerator() {
-        return new Number(13) + 'b'
+    static idGenerator(subject) {
+        return subject+'_'+Date.now()
     }
 }
 

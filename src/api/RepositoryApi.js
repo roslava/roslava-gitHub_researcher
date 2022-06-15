@@ -28,7 +28,7 @@ export const getRepositories = (inputValue) => {
                 const data = response.data.items
                 data.forEach((item, index) => {
                     item.isCommentFormVisible = false
-                    item.comments = []
+                    item.comments = {}
                 })
 
                 store.dispatch(updateErrorState(null));

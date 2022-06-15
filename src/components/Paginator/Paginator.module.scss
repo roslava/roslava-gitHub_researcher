@@ -4,7 +4,9 @@
   background-color: #ffffff;
   display: flex;
   min-width: 100%;
+  width: 100%;
   flex-wrap: wrap;
+  flex: 1 1 auto !important;
   margin: -15px;
   padding: 15px 15px 0;
   box-shadow: 6px 6px 20px -16px rgba(34, 60, 80, 0.2);

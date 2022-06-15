@@ -69,11 +69,30 @@ export const setCommentFormHide = (repoId, boolVal) => ({
 
 export const setQuantityOnPage = (repoQuantity) => ({
     type: "SET_QUANTITY_REPOS_ON_PAGE",
-    payload:{repoQuantityPerPage: repoQuantity}
+    payload: {repoQuantityPerPage: repoQuantity}
 });
 
 
 export const setPageNumber = (pageNumberVal) => ({
     type: "SET_PAGE_NUMBER",
-    payload:{currentPageNumber: pageNumberVal}
+    payload: {currentPageNumber: pageNumberVal}
+});
+
+export const setCommentText = (repoCommentsId, comId, commentDate, commentText) => ({
+    type: "SET_COMMENT_TEXT",
+    payload: {
+        repoCommentsId: repoCommentsId,
+        commentsId: comId,
+        currentCommentText: commentText,
+        currentCommentDate: commentDate
+    }
+});
+
+export const setCommentAuthor = (repoCommentsId, comId, commentAuthor) => ({
+    type: "SET_COMMENT_AUTHOR",
+    payload: {
+        repoCommentsId: repoCommentsId,
+        commentsId: comId,
+        currentCommentAuthor: commentAuthor,
+    }
 });

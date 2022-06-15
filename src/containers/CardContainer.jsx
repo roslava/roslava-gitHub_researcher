@@ -10,7 +10,8 @@ const mapStateToProps = (state) => (
         repoId: state.repoId,
         showVal: state.showVal,
         id: state.id,
-        isCommentFormVisible: state.isCommentFormVisible
+        isCommentFormVisible: state.isCommentFormVisible,
+
     }
 );
 

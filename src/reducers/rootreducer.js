@@ -149,10 +149,52 @@ const handlers = {
             currentPageNumber: pageNumberVal
         })
     },
+
+    SET_COMMENT_TEXT: (state, action) => {
+        const repoCommentsId = action.payload.repoCommentsId
+        const commentText = action.payload. currentCommentText
+        const comId = action.payload.commentsId
+        const commentDate = action.payload.currentCommentDate
+        return {
+            ...state,
+            repositories: state.repositories.map(
+                repository => repository.id === repoCommentsId
+                    ? {
+                        ...repository,
+                        comments:{
+                        repository_ID: repoCommentsId,
+                        currentCommentText: commentText,
+                        commentsId: comId,
+                        currentCommentDate: commentDate,
+
+                        }
+                    }
+                    : repository
+            ),
+        }
+    },
+
+    SET_COMMENT_AUTHOR: (state, action) => {
+        const repoCommentsId = action.payload.repoCommentsId
+        const commentAuthor = action.payload. currentCommentAuthor
+        const comId = action.payload.commentsId
+        return {
+            ...state,
+            repositories: state.repositories.map(
+                repository => repository.id === repoCommentsId
+                    ? {
+                        ...repository,
+                        comments:{
+                            ...repository.comments,
+                            currentCommentAuthor: commentAuthor,
+                            commentsId: comId
+
+                        }
+                    }
+                    : repository
+            ),
+        }
+    },
 }
-
-
-
-
 
 export default createReducer(initialState, handlers);
