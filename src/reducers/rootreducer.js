@@ -1,5 +1,6 @@
 import * as lodash from "lodash";
 import {setCommentFormShow} from "../actions/rootactions";
+import classes from "../components/Property/Property.module.scss";
 
 function createReducer(initialState, handlers) {
     return function reducer(state = initialState, action) {
@@ -188,13 +189,53 @@ const handlers = {
                             ...repository.comments,
                             currentCommentAuthor: commentAuthor,
                             commentsId: comId
-
                         }
                     }
                     : repository
             ),
         }
     },
+
+
+    SET_STAR_STARGAZERS_COUNT: (state, action) => {
+        const repoId = action.payload.repoIdStargazers
+        const countStars = action.payload.stargazers_count
+        return {
+            ...state,
+            repositories: state.repositories.map(
+                repository => repository.id === repoId
+                    ? {
+                        ...repository,
+                        stargazers_count: countStars
+                    }
+                    : repository
+            ),
+        }
+    },
+
+
+
+
+
+    SET_ICON_STYLE_CLASSES: (state=[classes.icon], action) => {
+        const repoId = action.payload.repoIdStargazers
+        const iconStyleClasses = action.payload.propertyIconStyleClasses
+        return {
+            ...state,
+            repositories: state.repositories.map(
+                repository => repository.id === repoId
+                    ? {
+                        ...repository,
+                        propertyIconStyleClasses: iconStyleClasses
+                    }
+                    : repository
+            ),
+        }
+    },
+
+
+
+
 }
 
 export default createReducer(initialState, handlers);

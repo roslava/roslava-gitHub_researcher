@@ -4,9 +4,10 @@ import classes from './Card.module.scss';
 import TextInput from "../TextInput/TextInput";
 import Button from "../Button/Button";
 import CommentBlock from "../../containers/CommentsContainer";
-import Property from "../Property/Property";
+import Property from "../../containers/PropertyContainer";
 import Helpers from '../../helpers/Helpers'
 import {AiFillStar} from "react-icons/ai";
+import {setIconStyleClasses} from "../../actions/rootactions";
 
 
 const Card = ({
@@ -17,6 +18,9 @@ const Card = ({
                   deleteRepository,
                   repositories,
                   dataFrom,
+                  repoCountStars,
+                  setStarStargazersCount,
+                  setIconStyleClasses
               }) => {
 
     let wrapClasses = [classes.wrapper, classes.border];
@@ -30,7 +34,6 @@ const Card = ({
         }
         deleteRepository(repo.id);
     }
-
     Helpers.setLocalStorageData('repositories', repositories);
 
     return (
@@ -55,17 +58,21 @@ const Card = ({
                 </div>
                 <div className={classes.wrapper}>
 
-                    <Property count={repo['stargazers_count']}><AiFillStar size={26}/></Property>
-                    <Property count={repo['watchers']}><MdRemoveRedEye size={26}/></Property>
+                    <Property propertyIconStyleClasses={repo.propertyIconStyleClasses}
+                              setPropertyCountInState={setStarStargazersCount} repoID={repo.id}
+                              count={repo['stargazers_count']}><AiFillStar size={26}/></Property>
+                    <Property repoID={repo.id} count={repo['watchers']}><MdRemoveRedEye size={26}/></Property>
 
                 </div>
                 <div className={wrapClasses.join(' ')}>
-                    <TextInput action = {() => setCommentFormShow(repo.id, true)} textInputType="comments" placeholder="Коментарий к проекту"/>
+                    <TextInput action={() => setCommentFormShow(repo.id, true)} textInputType="comments"
+                               placeholder="Коментарий к проекту"/>
                     <Button btnType="comments" action={() => {
                         setCommentFormShow(repo.id, true)
                     }}/>
 
-                    {repo.isCommentFormVisible ? <CommentBlock repoComments={repo.comments} curRepoId={repo.id} /> : null}
+                    {repo.isCommentFormVisible ?
+                        <CommentBlock repoComments={repo.comments} curRepoId={repo.id}/> : null}
                 </div>
                 <div></div>
             </div>

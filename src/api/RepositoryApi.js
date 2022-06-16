@@ -29,6 +29,7 @@ export const getRepositories = (inputValue) => {
                 data.forEach((item, index) => {
                     item.isCommentFormVisible = false
                     item.comments = {}
+                    item.propertyIconStyleClasses = []
                 })
 
                 store.dispatch(updateErrorState(null));

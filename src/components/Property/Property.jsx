@@ -1,34 +1,30 @@
 import React, {useState} from 'react';
 import classes from "./Property.module.scss";
 
-function Property({children,count}){
+function Property({children, count, repoID, setStarStargazersCount,setIconStyleClasses, propertyIconStyleClasses}) {
 
+const styleClasses = [classes.icon, propertyIconStyleClasses]
 
-const icon = [classes.icon]
+    function toggleStyle() {
+        if (propertyIconStyleClasses.length === 0) {
+            setIconStyleClasses(repoID, [classes.active])
+            return setStarStargazersCount(repoID, count+1)
+           }
 
-    const [iconStyleClasses, setIconStyleClasses] = useState(icon)
-
-    function toggleStyle(){
-        if(iconStyleClasses.length === 1){
-            icon.push(classes.active)
-            return setIconStyleClasses(icon)
+        if (propertyIconStyleClasses.length === 1) {
+            setIconStyleClasses(repoID, [])
+            return setStarStargazersCount(repoID, count-1)
         }
-
-        if(iconStyleClasses.length === 2){
-            return setIconStyleClasses(iconStyleClasses.slice(0,1))
-        }
+        setIconStyleClasses(repoID, [classes.active])
     }
 
-
-
-    return(
+    return (
         <div className={classes.block}>
-            <div onClick={toggleStyle} className={iconStyleClasses.join(' ')}>{children}</div>
+            <div onClick={toggleStyle} className={styleClasses.join(' ')}>{children}</div>
             <div className={classes.count}>{count}</div>
         </div>
     )
 }
-
 
 export default Property;
 

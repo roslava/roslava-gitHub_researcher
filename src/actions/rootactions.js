@@ -96,3 +96,19 @@ export const setCommentAuthor = (repoCommentsId, comId, commentAuthor) => ({
         currentCommentAuthor: commentAuthor,
     }
 });
+
+export const setStarStargazersCount = (repoId, countStars) => ({
+    type: "SET_STAR_STARGAZERS_COUNT",
+    payload: {
+        repoIdStargazers: repoId,
+        stargazers_count: countStars,
+    }
+});
+
+export const setIconStyleClasses = (repoId, iconStyleClasses) => ({
+    type: "SET_ICON_STYLE_CLASSES",
+    payload: {
+        repoIdStargazers: repoId,
+        propertyIconStyleClasses: iconStyleClasses,
+    }
+});

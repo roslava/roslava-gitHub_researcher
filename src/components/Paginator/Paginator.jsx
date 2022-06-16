@@ -15,18 +15,9 @@ const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuan
     const pageNumber = currentPageNumber
     const reposPerPage = repoQuantityPerPage;
     const pagesVisited = pageNumber * reposPerPage;
-    // console.log('количество репозиториев', repos.length)
-    // console.log('количество репозиториев позади', pagesVisited)
-    // console.log('количество репозиториев до + текущая страница', pagesVisited + reposPerPage)
-    //
-    // console.log('количество страниц позади', currentPageNumber)
-    // console.log('eeee', currentPageNumber)
-
-
 
     if(pagesVisited + reposPerPage > repos.length){
         const sss = repos.length % currentPageNumber
-        // console.log('должна быть страница?',sss)
     }
 
 

@@ -11,7 +11,6 @@ const mapStateToProps = (state) => (
         showVal: state.showVal,
         id: state.id,
         isCommentFormVisible: state.isCommentFormVisible,
-
     }
 );
 
@@ -19,8 +18,6 @@ const mapStateToProps = (state) => (
 const mapDispatchToProps = (dispatch) => ({
     setCommentFormShow: (repoId, showVal) => dispatch(setCommentFormShow(repoId, showVal)),
     deleteRepository: (id) => dispatch(deleteRepository(id)),
-
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

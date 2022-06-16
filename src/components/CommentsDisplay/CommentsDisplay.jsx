@@ -11,8 +11,6 @@ function CommentsDisplay({selectedRepo}) {
 
     let currentRepositoryComments = []
 
-    console.log(allComments)
-    console.log(selectedRepo.id)
 
     allComments.map((comment) => {
         if (comment.repository_ID === selectedRepo.id) {
@@ -20,8 +18,6 @@ function CommentsDisplay({selectedRepo}) {
         }
     })
 
-
-console.log('ggg',currentRepositoryComments)
 
     if(currentRepositoryComments.length !== 0) {
 
