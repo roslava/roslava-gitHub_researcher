@@ -4,8 +4,9 @@ import classes from './Card.module.scss';
 import TextInput from "../TextInput/TextInput";
 import Button from "../Button/Button";
 import CommentBlock from "../../containers/CommentsContainer";
-import Stargazers from "../Stargazers/Stargazers";
+import Property from "../Property/Property";
 import Helpers from '../../helpers/Helpers'
+import {AiFillStar} from "react-icons/ai";
 
 
 const Card = ({
@@ -54,9 +55,9 @@ const Card = ({
                 </div>
                 <div className={classes.wrapper}>
 
-                    <Stargazers stargazers_count={repo.stargazers_count}/>
+                    <Property count={repo['stargazers_count']}><AiFillStar size={26}/></Property>
+                    <Property count={repo['watchers']}><MdRemoveRedEye size={26}/></Property>
 
-                    <div className={classes.views}><MdRemoveRedEye size={26}/>{repo['watchers']}</div>
                 </div>
                 <div className={wrapClasses.join(' ')}>
                     <TextInput action = {() => setCommentFormShow(repo.id, true)} textInputType="comments" placeholder="Коментарий к проекту"/>
