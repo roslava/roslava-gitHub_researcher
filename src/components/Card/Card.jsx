@@ -5,7 +5,7 @@ import TextInput from "../TextInput/TextInput";
 import Button from "../Button/Button";
 import CommentBlock from "../../containers/CommentsContainer";
 import Property from "../../containers/PropertyContainer";
-import Helpers from '../../helpers/Helpers'
+import Helper from '../../Helpers/Helper'
 import {AiFillStar} from "react-icons/ai";
 import {setIconStyleClasses} from "../../actions/rootactions";
 
@@ -18,9 +18,7 @@ const Card = ({
                   deleteRepository,
                   repositories,
                   dataFrom,
-                  repoCountStars,
                   setStarStargazersCount,
-                  setIconStyleClasses
               }) => {
 
     let wrapClasses = [classes.wrapper, classes.border];
@@ -34,7 +32,7 @@ const Card = ({
         }
         deleteRepository(repo.id);
     }
-    Helpers.setLocalStorageData('repositories', repositories);
+    Helper.setLocalStorageData('repositories', repositories);
 
     return (
         <div className={classes.column}>
@@ -65,7 +63,7 @@ const Card = ({
 
                 </div>
                 <div className={wrapClasses.join(' ')}>
-                    <TextInput action={() => setCommentFormShow(repo.id, true)} textInputType="comments"
+                    <TextInput textColor={'white'} disabled={false} action={() => setCommentFormShow(repo.id, true)} textInputType="comments"
                                placeholder="Коментарий к проекту"/>
                     <Button btnType="comments" action={() => {
                         setCommentFormShow(repo.id, true)

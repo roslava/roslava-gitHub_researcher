@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import classes from './CommentForm.module.scss';
 import {RiSendPlane2Fill} from 'react-icons/ri';
 import {CgClose} from 'react-icons/cg';
-import Helpers from '../../helpers/Helpers'
+import Helper from '../../Helpers/Helper'
 
 function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentAuthor, repoComments}) {
 
     const [successVisibility, setSuccessVisibility] = useState('none')
 
-    let currentCommentsId = Helpers.idGenerator('comment');
+    let currentCommentsId = Helper.idGenerator('comment');
 
     function commentFormHandler(event) {
         event.preventDefault()

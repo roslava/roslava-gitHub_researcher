@@ -1,6 +1,6 @@
 import axios from "axios";
 import ReactPaginate from "react-paginate";
-import Helpers from '../helpers/Helpers'
+import Helper from '../Helpers/Helper'
 import {
     updateErrorState,
     updateFilteredRepos,
@@ -35,7 +35,7 @@ export const getRepositories = (inputValue) => {
                 store.dispatch(updateErrorState(null));
                 store.dispatch(updateRepositories(data));
                 store.dispatch(updateFilteredRepos(data));
-                Helpers.setLocalStorageData('repositories', data)
+                Helper.setLocalStorageData('repositories', data)
 
 
                 return response.data.items;

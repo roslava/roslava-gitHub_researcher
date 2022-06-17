@@ -1,4 +1,4 @@
-class Helpers {
+class Helper {
 
 
 //     if (!source && source.length !== 0) {
@@ -28,4 +28,4 @@ class Helpers {
     }
 }
 
-export default Helpers;
+export default Helper;

@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom";
 import {ProgressSpinner} from 'primereact/progressspinner';
 import MessageContainer from '../../containers/MessageContainer';
 import Paginator from '../../containers/PaginatorContainer'
-import Helpers from '../../helpers/Helpers'
+import Helper from '../../Helpers/Helper'
 import classes from './Repositories.module.scss';
 import "../../global_styles/table.scss";
 
@@ -51,7 +51,7 @@ const Repositories = ({
             <MessageContainer/>
         );
     } else {
-        if (Helpers.getLocalStorageData('repositories') === 0) {
+        if (Helper.getLocalStorageData('repositories') === 0) {
             return (
                 <div className={classes.process}>
                     <h3 className={classes.h3}>Привет, властелин GitHub!</h3>
@@ -60,7 +60,7 @@ const Repositories = ({
         } else {
             return (
                 <Paginator dataFrom='fromLocalStorage' inputVal={inputVal}
-                           repositories={Helpers.getLocalStorageData('repositories')}
+                           repositories={Helper.getLocalStorageData('repositories')}
                            selectRepository={selectRepository}/>
             );
         }

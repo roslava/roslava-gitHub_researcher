@@ -1,94 +1,150 @@
 import React, {useState} from 'react';
-import ReactPaginate from "react-paginate";
+
 import classes from './Paginator.module.scss';
 import './Paginator.scss';
 import Card from "../../containers/CardContainer";
 import {BsChevronLeft} from 'react-icons/bs';
 import {BsChevronRight} from 'react-icons/bs';
-import Helpers from '../../helpers/Helpers'
+import Helper from '../../Helpers/Helper'
 import DropDownPagesQuantity from "../../containers/DropDownPagesQuantityContainer";
+import usePagination from "../../hooks/usePagination";
+import helper from "../../Helpers/Helper";
 
 
+const Paginator = ({
+                       repositories,
+                       selectRepository,
+                       inputVal,
+                       dataFrom,
+                       repoQuantityPerPage,
+                       setPageNumber,
+                       currentPageNumber
+                   }) => {
 
-const Paginator = ({repositories, selectRepository, inputVal, dataFrom, repoQuantityPerPage, setPageNumber, currentPageNumber }) => {
-    const repos = repositories.slice(0, 30);
-    const pageNumber = currentPageNumber
-    const reposPerPage = repoQuantityPerPage;
-    const pagesVisited = pageNumber * reposPerPage;
 
-    if(pagesVisited + reposPerPage > repos.length){
-        const sss = repos.length % currentPageNumber
+    const {
+        firstContentIndex,
+        lastContentIndex,
+        nextPage,
+        prevPage,
+        page,
+        setPage,
+        totalPages,
+        setPageSAFE
+    } = usePagination({
+        contentPerPage: repoQuantityPerPage,
+        count: repositories.length,
+    });
+
+
+    if (page > totalPages && totalPages > 1) {
+        setPage(totalPages)
     }
 
 
-    const displayRepos = repos
-        .slice(pagesVisited, pagesVisited + reposPerPage)
+
+    const displayRepos = repositories
+        .slice(firstContentIndex, lastContentIndex)
         .map((repo, index) => {
             return (
-                <Card dataFrom={dataFrom} repositories={repositories} repo={repo} action={selectRepository} actionProps={repo} key={index}/>
+                <Card dataFrom={dataFrom} repositories={repositories} repo={repo} action={selectRepository}
+                      actionProps={repo} key={index}/>
             );
         });
 
-    function pageCount_(repoQuantityPerPage){
-        return  Math.ceil(repos.length / repoQuantityPerPage);
-    }
+// console.log('fffffff',page)
 
-    const pageCount = Math.ceil(repos.length / repoQuantityPerPage);
 
-    const changePage = ({selected}) => {
-            setPageNumber(selected);
 
-   }
+            if (page > 1) {
+                 Helper.setLocalStorageData('currentPage', page)
+                console.log('пишем')
+            }
 
-    const onPageActive = ({selected}) => {
-        setPageNumber(selected);
+            if (Helper.getLocalStorageData('currentPage' )){
+                window.addEventListener('load', ()=>setPage( Number(Helper.getLocalStorageData('currentPage' ))));
+            }
 
-    }
 
-    // onPageActive?(selectedItem: { selected: number }): void;
+
+
+
+
+
+
+
+
+
+
+
+    //
+    // if(window.performance){
+    //
+    // }
+
+
+
 
 
 
     const whenWasTheSearch = (dataFrom, inputVal, repositories) => {
-        if(dataFrom === 'fromStore'){
+        if (dataFrom === 'fromStore') {
             return (<div><p>Вы искали <span>{inputVal}</span></p>
-                <p>Количество найденных репозиториев: <span>{repositories.length}</span></p>
+                <p>Количество найденных <span><br/></span> репозиториев: <span>{repositories.length}</span></p>
                 {/*<p className={classes.delete} onClick={()=>{clearAllRepos()}}>Удалить результаты поиска</p>*/}
             </div>)
-        }else if(dataFrom === 'fromLocalStorage'){
-            return (<div><p>Недавно вы искали <span>{Helpers.getLocalStorageData('searchInputValue')}</span></p>
-                <p>Количество найденных репозиториев: <span>{Helpers.getLocalStorageData('repositories').length}</span></p>
+        } else if (dataFrom === 'fromLocalStorage') {
+            return (<div><p>Недавно вы искали <span>{Helper.getLocalStorageData('searchInputValue')}</span></p>
+                <p>Количество найденных репозиториев: <span>{Helper.getLocalStorageData('repositories').length}</span>
+                </p>
                 {/*<p className={classes.delete} onClick={()=>{localStorage.clear()}}>Удалить результаты поиска</p>*/}
             </div>)
         }
-      }
+    }
 
     return (
-        <div className={classes.block}>
+        <div className={classes.block} id='paginatorBlock'>
+
 
             {displayRepos}
 
+
             <div className={classes.bottomwrapper}>
 
-                <DropDownPagesQuantity repos={repos}/>
+                <DropDownPagesQuantity repos={repositories}/>
+                <p className={classes.total}> {page}/{totalPages}</p>
+
 
                 <div className={classes.buttonswrapper}>
-                    <ReactPaginate
-                        previousLabel={<BsChevronLeft size={50}/>}
-                        nextLabel={<BsChevronRight size={50}/>}
-                        pageCount={pageCount_(repoQuantityPerPage)}
-                        onPageChange={changePage}
-                        onPageActive={onPageActive }
-                        containerClassName={'paginationBttns'}
-                        previousLinkClassName={'previousBttn'}
-                        nextLinkClassName={'nextBttn'}
-                        disabledClassName={'paginationDisabled'}
-                        activeClassName={'paginationActive'}
-                        pageRangeDisplayed={3}
-                        breakLabel={'ddd'}
-                        // marginPagesDisplayed={22}
-                    />
+
+
+                    <div className={classes.buttons}>
+                        <div className="navButtonWrapper">
+
+                        <button onClick={prevPage} className="paginationBttns previousBttn">
+                            <BsChevronLeft size={'22px'}/>
+                        </button>
+                        {/* @ts-ignore */}
+                        {[...Array(totalPages).keys()].map((el) => (
+                            <button
+                                onClick={() => setPage(el + 1)}
+                                key={el}
+                                className={`paginationBttns ${page === el + 1 ? "activePage" : ""}`}
+                            >
+                                {el + 1}
+                            </button>
+                        ))}
+                        <button onClick={nextPage} className="paginationBttns nextBttn">
+                            <BsChevronRight size={'22px'}/>
+                        </button>
+                        </div>
+
+                    </div>
+
+
                 </div>
+
+
 
                 <div className={classes.searchDetails}>
                     {whenWasTheSearch(dataFrom, inputVal, repositories)}

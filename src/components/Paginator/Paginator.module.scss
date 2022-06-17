@@ -22,12 +22,12 @@
   justify-content: center;
   height: fit-content !important;
   padding: 0;
+
 }
 
-.buttons > ul {
-  padding-left: 0 !important;
-  margin-right: 0 !important;
-  margin-top: 0 !important;
+.buttons > button {
+  padding: 0;
+
 }
 
 .bottomwrapper {
@@ -85,4 +85,24 @@ font-weight: 700;
 .delete:hover{
   font-weight: 700;
   color: rgba(19, 28, 33, 0.94);
+}
+
+.total{
+  background-color: #ffffff;
+  width: 60px;
+  height: 40px;
+  border-radius: 20px;
+  position:absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left:120px;
+  bottom: 31px;
+  font-size: 12px;
+  text-align: left;
+  padding-top: 4px;
+  box-shadow: 0px 4px 12px 1px rgba(34, 60, 80, 0.2);
+  @media (max-width: 700px) {
+    display: none;
+  }
 }

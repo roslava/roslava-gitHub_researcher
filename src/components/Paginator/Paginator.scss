@@ -1,46 +1,73 @@
 @import 'src/global_styles/colors.scss';
 
-.paginationBttns{
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
 
-.paginationBttns a{
-  width: 52px !important;
-  height: 52px !important;
-  display: flex;
-  padding:10px;
-  margin: 0;
-  align-items: center;
-  justify-content: center;
+.navButtonWrapper{
   border:1px solid $color-grey-dark;
   border-left: 0;
-  color: $color-black;
-  cursor: pointer;
-  transition: background-color .3s;
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+
+  animation: forwards;
+  animation-duration: 3s;
+  animation-name: openUp;
+  //animation-delay: 2s;
 }
 
-.paginationBttns a:hover{
- color: #ffffff;
-  background-color: $color-blue;
+
+@keyframes openUp {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.paginationBttns{
+  list-style: none;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+  width: 52px !important;
+  height: 52px !important;
+  padding:10px;
+  align-items: center;
+  border:0;
+  border-left: 0;
+  color: #00a3ff;
+  cursor: pointer;
+  transition: background-color .3s;
+  background-color: #ffffff;
+  border-left:1px solid $color-grey-dark !important;
+}
+
+.paginationBttns:hover{
+ color: #00a3ff;
+  background-color: rgba(0, 163, 255, 0.22);
 }
 
 .previousBttn{
   display: flex;
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
-  border:1px solid $color-grey-dark !important;
+  border-right:0 !important;
 }
 
 .nextBttn{
   display: flex;
-  border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
   border-left: 0 !important;
+  border-left:1px solid $color-grey-dark !important;
 }
 
 .paginationDisabled{
@@ -51,4 +78,29 @@
   display: flex;
   color: #ffffff;
   background-color: $color-blue;
+}
+
+.activePage {
+  display: flex;
+  color: #ffffff;
+
+  animation: forwards;
+  animation-duration: 1s;
+  animation-name: activeFadeOut;
+  //animation-delay: .8s;
+  cursor: auto;
+}
+
+  @keyframes activeFadeOut {
+    from {
+      background-color: #ffffff;
+      color: #00a3ff;
+    }
+
+    to {
+      //margin-left: 0%;
+      background-color: #00a3ff;
+      color: #ffffff;
+
+    }
 }

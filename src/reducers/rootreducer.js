@@ -144,7 +144,7 @@ const handlers = {
         })
     },
 
-    SET_PAGE_NUMBER: (state=0, action) => {
+    SET_PAGE_NUMBER: (state=1, action) => {
         const pageNumberVal = action.payload.currentPageNumber
         return Object.assign({}, state, {
             currentPageNumber: pageNumberVal

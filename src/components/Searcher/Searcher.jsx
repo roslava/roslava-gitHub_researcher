@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom';
 import {getRepositories} from '../../api/RepositoryApi';
 import Container from "../Layout/Container/Container";
 import classes from "./Searcher.module.scss";
-import Helpers from "../../helpers/Helpers";
+import Helper from "../../Helpers/Helper";
 
 
 const Searcher = ({
@@ -103,7 +103,7 @@ const Searcher = ({
         });
     }
 
-    Helpers.setLocalStorageData('searchInputValue', inputVal)
+    Helper.setLocalStorageData('searchInputValue', inputVal)
 
     return (
         <React.Fragment>

@@ -40,6 +40,48 @@
   margin-right: 15px;
 }
 
+
+
+
+
+
+
+
+
+.navButtonWrapper{
+  border:1px solid $color-grey-dark;
+  border-left: 0;
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+
+  animation: forwards;
+  animation-duration: 3s;
+  animation-name: avatarUp;
+  animation-delay: 2s;
+}
+
+
+@keyframes avatarUp {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 .avatar > img {
   width: 50px;
   height: 50px;
