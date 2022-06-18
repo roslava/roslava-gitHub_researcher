@@ -137,7 +137,7 @@
   bottom:0;
 color: #ffffff;
   padding: 30px;
-  opacity: 95%;
+  opacity: 0.8;
 
   animation: forwards;
   animation-duration: 6s;
@@ -156,11 +156,11 @@ color: #ffffff;
 
 @keyframes successDown {
   from {
-    opacity: 100%;
+    opacity: 1.0;
   }
 
   to {
-    opacity: 0%;
+    opacity: 0.1;
   }
 }
 

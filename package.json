@@ -62,7 +62,9 @@
     "@testing-library/user-event": "^14.0.0-beta",
     "babel-jest": "^27.5.1",
     "babel-plugin-istanbul": "^6.1.1",
+    "css-loader": "^6.7.1",
     "cypress": "^9.5.1",
+    "dotenv-webpack": "^7.1.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-testing-library": "^5.0.6",
     "jest": "^27.5.1",
@@ -71,7 +73,14 @@
     "msw": "^0.38.2",
     "nyc": "^15.1.0",
     "react-test-renderer": "^17.0.2",
-    "sass": "^1.52.2"
+    "sass": "^1.52.2",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.3",
+    "ts-loader": "^9.3.0",
+    "webpack": "5.36",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-middleware": "^5.3.3"
   },
   "browserslist": {
     "production": [

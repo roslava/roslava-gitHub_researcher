@@ -1,80 +1,67 @@
 @import 'src/global_styles/colors.scss';
 
-
-.navButtonWrapper{
-  border:1px solid $color-grey-dark;
+.navButtonWrapper {
+  border: 1px solid $color-grey-dark;
   border-left: 0;
   display: flex;
   border-radius: 3px;
   overflow: hidden;
-
   animation: forwards;
   animation-duration: 3s;
   animation-name: openUp;
-  //animation-delay: 2s;
 }
-
 
 @keyframes openUp {
   from {
-    opacity: 0%;
+    opacity: 0.1;
   }
 
   to {
-    opacity: 100%;
+    opacity: 1.0;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.paginationBttns{
+.paginationBttns {
   list-style: none;
   justify-content: center;
   display: flex;
   margin: 0;
   width: 52px !important;
   height: 52px !important;
-  padding:10px;
+  padding: 10px;
   align-items: center;
-  border:0;
+  border: 0;
   border-left: 0;
   color: #00a3ff;
   cursor: pointer;
   transition: background-color .3s;
   background-color: #ffffff;
-  border-left:1px solid $color-grey-dark !important;
+  border-left: 1px solid $color-grey-dark !important;
+  font-size: 15px;
 }
 
-.paginationBttns:hover{
- color: #00a3ff;
+.paginationBttns:hover {
+  color: #00a3ff;
   background-color: rgba(0, 163, 255, 0.22);
 }
 
-.previousBttn{
+.previousBttn {
   display: flex;
-  border-right:0 !important;
+  border-right: 0 !important;
 }
 
-.nextBttn{
+.nextBttn {
   display: flex;
   border-left: 0 !important;
-  border-left:1px solid $color-grey-dark !important;
+  border-left: 1px solid $color-grey-dark !important;
 }
 
-.paginationDisabled{
+.paginationDisabled {
   display: flex;
 
 }
-.paginationActive a{
+
+.paginationActive a {
   display: flex;
   color: #ffffff;
   background-color: $color-blue;
@@ -91,16 +78,15 @@
   cursor: auto;
 }
 
-  @keyframes activeFadeOut {
-    from {
-      background-color: #ffffff;
-      color: #00a3ff;
-    }
+@keyframes activeFadeOut {
+  from {
+    background-color: #ffffff;
+    color: #00a3ff;
+  }
 
-    to {
-      //margin-left: 0%;
-      background-color: #00a3ff;
-      color: #ffffff;
-
-    }
+  to {
+    //margin-left: 0%;
+    background-color: #00a3ff;
+    color: #ffffff;
+  }
 }
