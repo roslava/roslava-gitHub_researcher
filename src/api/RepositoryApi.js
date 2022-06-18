@@ -29,7 +29,10 @@ export const getRepositories = (inputValue) => {
                 data.forEach((item, index) => {
                     item.isCommentFormVisible = false
                     item.comments = {}
-                    item.propertyIconStyleClasses = []
+                    item.propertyStyles = {
+                            stargazers:[],
+                            watchers:[]
+                    }
                 })
 
                 store.dispatch(updateErrorState(null));

@@ -128,8 +128,8 @@ const handlers = {
         const repoId = action.payload.repoId
         const boolVal = action.payload.showVal
         return Object.assign({}, state, {
-            repositories: state. repositories.map((repository) => {
-                if(repository.id === repoId ) {
+            repositories: state.repositories.map((repository) => {
+                if (repository.id === repoId) {
                     repository.isCommentFormVisible = boolVal
                 }
                 return repository;
@@ -144,7 +144,7 @@ const handlers = {
         })
     },
 
-    SET_PAGE_NUMBER: (state=1, action) => {
+    SET_PAGE_NUMBER: (state = 1, action) => {
         const pageNumberVal = action.payload.currentPageNumber
         return Object.assign({}, state, {
             currentPageNumber: pageNumberVal
@@ -153,7 +153,7 @@ const handlers = {
 
     SET_COMMENT_TEXT: (state, action) => {
         const repoCommentsId = action.payload.repoCommentsId
-        const commentText = action.payload. currentCommentText
+        const commentText = action.payload.currentCommentText
         const comId = action.payload.commentsId
         const commentDate = action.payload.currentCommentDate
         return {
@@ -162,11 +162,11 @@ const handlers = {
                 repository => repository.id === repoCommentsId
                     ? {
                         ...repository,
-                        comments:{
-                        repository_ID: repoCommentsId,
-                        currentCommentText: commentText,
-                        commentsId: comId,
-                        currentCommentDate: commentDate,
+                        comments: {
+                            repository_ID: repoCommentsId,
+                            currentCommentText: commentText,
+                            commentsId: comId,
+                            currentCommentDate: commentDate,
 
                         }
                     }
@@ -177,7 +177,7 @@ const handlers = {
 
     SET_COMMENT_AUTHOR: (state, action) => {
         const repoCommentsId = action.payload.repoCommentsId
-        const commentAuthor = action.payload. currentCommentAuthor
+        const commentAuthor = action.payload.currentCommentAuthor
         const comId = action.payload.commentsId
         return {
             ...state,
@@ -185,7 +185,7 @@ const handlers = {
                 repository => repository.id === repoCommentsId
                     ? {
                         ...repository,
-                        comments:{
+                        comments: {
                             ...repository.comments,
                             currentCommentAuthor: commentAuthor,
                             commentsId: comId
@@ -214,19 +214,73 @@ const handlers = {
     },
 
 
-
-
-
-    SET_ICON_STYLE_CLASSES: (state=[classes.icon], action) => {
+    SET_STAR_WATCHERS_COUNT: (state, action) => {
         const repoId = action.payload.repoIdStargazers
-        const iconStyleClasses = action.payload.propertyIconStyleClasses
+        const countWatchers = action.payload.watchers_count
         return {
             ...state,
             repositories: state.repositories.map(
                 repository => repository.id === repoId
                     ? {
                         ...repository,
-                        propertyIconStyleClasses: iconStyleClasses
+                        watchers_count: countWatchers
+                    }
+                    : repository
+            ),
+        }
+    },
+
+
+
+// !!!!
+    SET_STAR_CLASSES: (state=[], action) => {
+        const repoId = action.payload.repoIdStargazers
+        const stylesS = action.payload.propertyStarsClasses
+        return {
+            ...state,
+            repositories: state.repositories.map(
+                repository => repository.id === repoId
+                    ? {
+                        ...repository,
+                        propertyStyles: {
+                            ...repository.propertyStyles,
+                            stargazers: stylesS,
+
+                        }
+
+                    }
+                    : repository
+
+
+            ),
+        }
+    },
+
+
+
+
+
+
+
+
+
+
+
+    SET_WATCHERS_CLASSES: (state=[], action) => {
+        const repoId = action.payload.repoIdWatchers
+        const stylesW = action.payload.propertyWatchersClasses
+        return {
+            ...state,
+            repositories: state.repositories.map(
+                repository => repository.id === repoId
+                    ? {
+                        ...repository,
+                        propertyStyles: {
+                            ...repository.propertyStyles,
+                                watchers: stylesW,
+
+                        }
+
                     }
                     : repository
             ),
@@ -237,14 +291,35 @@ const handlers = {
 
 
 
-    SET_PAGE_NUMBER_PAGINATOR: (state= 3, action) => {
-        const pageN = action.payload.pagePaginator
-        return Object.assign({}, state, {
-            pagePaginator: pageN
-        })
-    },
 
 
+
+
+
+
+
+    // SET_WATCHERS_CLASSES: (state, action) => {
+    //     const repoId = action.payload.repoIdStargazers
+    //     const styles = action.payload.propertyWatchersClasses
+    //     return {
+    //         ...state,
+    //         repositories: state.repositories.map(
+    //             repository => repository.id === repoId
+    //                 ? {
+    //                     ...repository,
+    //                     repositoryStyles: {
+    //                         ...state.repository.repositoryStyles,
+    //                         properties: {
+    //                             watchers: styles,
+    //
+    //                         }
+    //                     }
+    //
+    //                 }
+    //                 : repository
+    //         ),
+    //     }
+    // },
 
 
 }

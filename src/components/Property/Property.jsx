@@ -1,21 +1,29 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from "./Property.module.scss";
+import {setStarClasses, setWatchersClasses} from "../../actions/rootactions";
 
-function Property({children, count, repoID, setStarStargazersCount,setIconStyleClasses, propertyIconStyleClasses}) {
+function Property({children, repoID, what, style, count,setStarClasses, setWatchersClasses,setWatchersCount, setStargazersCount}) {
 
-const styleClasses = [classes.icon, propertyIconStyleClasses]
+    function forWhatIsSet(what){
+        if(what === 'stargazers') return{setCount:setStargazersCount, setStyle:setStarClasses}
+        if(what === 'watchers') return{setCount:setWatchersCount, setStyle:setWatchersClasses}
+
+    }
+
+const styleClasses = [classes.icon, style]
 
     function toggleStyle() {
-        if (propertyIconStyleClasses.length === 0) {
-            setIconStyleClasses(repoID, [classes.active])
-            return setStarStargazersCount(repoID, count+1)
+        if (style.length === 0 || !style) {
+            forWhatIsSet(what).setStyle(repoID, [classes.active])
+            return forWhatIsSet(what).setCount(repoID, count+1)
            }
 
-        if (propertyIconStyleClasses.length === 1) {
-            setIconStyleClasses(repoID, [])
-            return setStarStargazersCount(repoID, count-1)
-        }
-        setIconStyleClasses(repoID, [classes.active])
+        if (style.length === 1) {
+
+            forWhatIsSet(what).setStyle(repoID, [])
+            return forWhatIsSet(what).setCount(repoID, count-1)
+            }
+        forWhatIsSet(what).setStyle(repoID, [classes.active])
     }
 
     return (
@@ -27,4 +35,3 @@ const styleClasses = [classes.icon, propertyIconStyleClasses]
 }
 
 export default Property;
-

@@ -7,8 +7,6 @@ import CommentBlock from "../../containers/CommentsContainer";
 import Property from "../../containers/PropertyContainer";
 import Helper from '../../Helpers/Helper'
 import {AiFillStar} from "react-icons/ai";
-import {setIconStyleClasses} from "../../actions/rootactions";
-
 
 const Card = ({
                   repo,
@@ -18,11 +16,14 @@ const Card = ({
                   deleteRepository,
                   repositories,
                   dataFrom,
-                  setStarStargazersCount,
+                  setStargazersCount,
+                  setWatchersCount,
+                  setStarClasses,
+                  setWatchersClasses
+
               }) => {
 
     let wrapClasses = [classes.wrapper, classes.border];
-
 
     const handlerDeleteRepository = () => {
         if (repositories.length <= 1) {
@@ -48,22 +49,34 @@ const Card = ({
                     <p>{repo.owner['login']}</p>
 
 
-                    {dataFrom !== 'fromLocalStorage' ?
-                        <div className={classes.removeHolder}><p onClick={() => handlerDeleteRepository()}
-                                                                 className={classes.remove}>Убрать</p></div> : null}
-
-
+                    <div className={classes.removeHolder}>
+                        <p onClick={() => handlerDeleteRepository()}
+                           className={classes.remove}>Убрать</p></div>
                 </div>
+
+
                 <div className={classes.wrapper}>
 
-                    <Property propertyIconStyleClasses={repo.propertyIconStyleClasses}
-                              setPropertyCountInState={setStarStargazersCount} repoID={repo.id}
-                              count={repo['stargazers_count']}><AiFillStar size={26}/></Property>
-                    <Property repoID={repo.id} count={repo['watchers']}><MdRemoveRedEye size={26}/></Property>
+                    <Property
+                        repoID={repo.id}
+                        what='stargazers'
+                        style={repo.propertyStyles.stargazers}
+                        count={repo['stargazers_count']}>
+                        <AiFillStar size={26}/>
+                    </Property>
+
+                    <Property
+                        repoID={repo.id}
+                        what='watchers'
+                        style={repo.propertyStyles.watchers}
+                        count={repo['watchers_count']}>
+                        <MdRemoveRedEye size={26}/>
+                    </Property>
 
                 </div>
                 <div className={wrapClasses.join(' ')}>
-                    <TextInput textColor={'white'} disabled={false} action={() => setCommentFormShow(repo.id, true)} textInputType="comments"
+                    <TextInput textColor={'white'} disabled={false} action={() => setCommentFormShow(repo.id, true)}
+                               textInputType="comments"
                                placeholder="Коментарий к проекту"/>
                     <Button btnType="comments" action={() => {
                         setCommentFormShow(repo.id, true)

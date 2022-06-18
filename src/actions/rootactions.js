@@ -97,7 +97,7 @@ export const setCommentAuthor = (repoCommentsId, comId, commentAuthor) => ({
     }
 });
 
-export const setStarStargazersCount = (repoId, countStars) => ({
+export const setStargazersCount = (repoId, countStars) => ({
     type: "SET_STAR_STARGAZERS_COUNT",
     payload: {
         repoIdStargazers: repoId,
@@ -105,16 +105,31 @@ export const setStarStargazersCount = (repoId, countStars) => ({
     }
 });
 
-export const setIconStyleClasses = (repoId, iconStyleClasses) => ({
-    type: "SET_ICON_STYLE_CLASSES",
+
+export const setWatchersCount = (repoId, countWatchers) => ({
+    type: "SET_STAR_WATCHERS_COUNT",
     payload: {
         repoIdStargazers: repoId,
-        propertyIconStyleClasses: iconStyleClasses,
+        watchers_count: countWatchers,
     }
 });
 
 
-export const setPagePaginator = (pageN) => ({
-    type: "SET_PAGE_NUMBER_PAGINATOR",
-    payload: {pagePaginator: pageN}
+
+export const setStarClasses = (repoId, stylesS) => ({
+    type: "SET_STAR_CLASSES",
+    payload: {
+        repoIdStargazers: repoId,
+        propertyStarsClasses: stylesS,
+    }
 });
+
+
+export const setWatchersClasses = (repoId, stylesW) => ({
+    type: "SET_WATCHERS_CLASSES",
+    payload: {
+        repoIdWatchers: repoId,
+        propertyWatchersClasses: stylesW,
+    }
+});
+
