@@ -22,6 +22,7 @@ const App = () => {
 
                     <Route exact path="/" component={Home}/>
 
+
                     <Route exact path="/?name=:queryInput" component={Home}/>
                     {/*<Route path="/bar" children={<Bar />} />*/}
 

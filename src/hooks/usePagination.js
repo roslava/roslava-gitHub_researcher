@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 const usePagination: UsePagination = ({ contentPerPage, count }) => {
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     // number of pages in total (total items / content on each page)
     const pageCount = Math.ceil(count / contentPerPage);
     // index of last item of current page

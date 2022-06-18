@@ -1,5 +1,3 @@
-
-
 import React, {useCallback, useEffect, useState} from "react";
 import {ProgressSpinner} from 'primereact/progressspinner';
 import {Chip} from 'primereact/chip';
@@ -14,17 +12,10 @@ import { MdOutlineArrowBack } from 'react-icons/md';
 import { DiGithubAlt } from 'react-icons/di';
 import CommentsDisplay from '../CommentsDisplay/CommentsDisplay'
 
-
-
-
 const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepository}) => {
     let {owner} = useParams();
     let {name} = useParams();
     let history = useHistory();
-
-    const goHome = () => {
-        history.push("/");
-    };
 
     const goBack = () => {
         history.goBack();
@@ -57,9 +48,6 @@ const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepos
     const selectRepository = async (selectedRepo) => {
         window.location.href = `https://github.com/${selectedRepo.owner.login}/${selectedRepo.name}`;
     }
-
-
-
 
     if (!loading && (selectedRepo && selectedRepo.id)) {
         return (

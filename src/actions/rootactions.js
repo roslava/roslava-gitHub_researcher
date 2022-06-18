@@ -112,3 +112,9 @@ export const setIconStyleClasses = (repoId, iconStyleClasses) => ({
         propertyIconStyleClasses: iconStyleClasses,
     }
 });
+
+
+export const setPagePaginator = (pageN) => ({
+    type: "SET_PAGE_NUMBER_PAGINATOR",
+    payload: {pagePaginator: pageN}
+});

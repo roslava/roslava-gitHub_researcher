@@ -236,6 +236,17 @@ const handlers = {
 
 
 
+
+    SET_PAGE_NUMBER_PAGINATOR: (state= 3, action) => {
+        const pageN = action.payload.pagePaginator
+        return Object.assign({}, state, {
+            pagePaginator: pageN
+        })
+    },
+
+
+
+
 }
 
 export default createReducer(initialState, handlers);
