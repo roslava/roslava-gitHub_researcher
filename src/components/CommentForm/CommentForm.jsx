@@ -6,6 +6,9 @@ import Helper from '../../Helpers/Helper'
 
 function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentAuthor, repoComments}) {
 
+    let date = new Date();
+
+
 
     const [successVisibility, setSuccessVisibility] = useState('none')
 
@@ -45,7 +48,7 @@ function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentA
                     <div>
                          <textarea value={repoComments.currentCommentText || ''}
 
-                                   onChange={(e) => setCommentText(curRepoId, currentCommentsId, new Date(), e.target.value)}
+                                   onChange={(e) => setCommentText(curRepoId, currentCommentsId, date.toISOString().split('T')[0], e.target.value)}
                                    minLength={10} required={true} className={classes.textarea} cols='60' maxLength='200'
                                    wrap="virtual" name='comment'
                                    placeholder='Ваш комментарий' rows="4" cols="40" autoFocus>
