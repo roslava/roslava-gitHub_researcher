@@ -43,8 +43,7 @@ function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentA
             <div className={classes.block}>
                 <form onSubmit={(event) => commentFormHandler(event)} className={classes.form}>
                     <div>
-                         <textarea autofocus
-                                   value={repoComments.currentCommentText || ''}
+                         <textarea value={repoComments.currentCommentText || ''}
 
                                    onChange={(e) => setCommentText(curRepoId, currentCommentsId, new Date(), e.target.value)}
                                    minLength={10} required={true} className={classes.textarea} cols='60' maxLength='200'
