@@ -6,6 +6,7 @@ import Helper from '../../Helpers/Helper'
 
 function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentAuthor, repoComments}) {
 
+
     const [successVisibility, setSuccessVisibility] = useState('none')
 
     let currentCommentsId = Helper.idGenerator('comment');
@@ -42,14 +43,15 @@ function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentA
             <div className={classes.block}>
                 <form onSubmit={(event) => commentFormHandler(event)} className={classes.form}>
                     <div>
-                        <input hidden={true} type="text" name='name' defaultValue={curRepoId}/>
-                    </div>
-                    <div>
-                         <textarea value={repoComments.currentCommentText || ''}
+                         <textarea autofocus
+                                   value={repoComments.currentCommentText || ''}
+
                                    onChange={(e) => setCommentText(curRepoId, currentCommentsId, new Date(), e.target.value)}
                                    minLength={10} required={true} className={classes.textarea} cols='60' maxLength='200'
                                    wrap="virtual" name='comment'
-                                   placeholder='Ваш комментарий' rows="4" cols="40"></textarea>
+                                   placeholder='Ваш комментарий' rows="4" cols="40" autoFocus>
+
+                                                   </textarea>
                     </div>
                     <div>
                         <input value={repoComments.currentCommentAuthor || ''}
@@ -58,7 +60,7 @@ function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentA
                                placeholder='Ваше имя'/>
                     </div>
                     <div className={classes.buttonsholder}>
-                        <button className={classes.button} type='submit'><RiSendPlane2Fill size={20}/></button>
+                        <div className={classes.button} type='submit'><RiSendPlane2Fill size={20}/></div>
                         <div onClick={() => setCommentFormHide(curRepoId, false)} className={classes.button}><CgClose
                             size={23}/></div>
                     </div>
