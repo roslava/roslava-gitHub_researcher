@@ -59,7 +59,7 @@ function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentA
                                placeholder='Ваше имя'/>
                     </div>
                     <div className={classes.buttonsholder}>
-                        <div className={classes.button} type='submit'><RiSendPlane2Fill size={20}/></div>
+                        <button className={classes.button} type='submit'><RiSendPlane2Fill size={20}/></button>
                         <div onClick={() => setCommentFormHide(curRepoId, false)} className={classes.button}><CgClose
                             size={23}/></div>
                     </div>
