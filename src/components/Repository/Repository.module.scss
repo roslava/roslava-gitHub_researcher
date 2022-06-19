@@ -1,16 +1,120 @@
 @import 'src/global_styles/colors.scss';
 
-.block{
-  display:flex;
-  background-color: #ffffff;
-  padding:30px;
-  flex-direction: column;
+.block {
+  display: block;
+  width: 100%;
   margin-top: 30px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px -1px rgba(0, 0, 0, 0.08);
+  @media (max-width: 767px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+  }
+  @media (max-width: 1440px) {
+    box-shadow: none;
+    border-radius: 0;
+  }
 }
 
-.back{
+.content {
   display: flex;
-width: fit-content;
+  min-width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  flex-direction: row;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.repoDescription {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  @media (max-width: 767px) {
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+    order: 2;
+
+  }
+}
+
+.avatarBigBlock {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+  @media (max-width: 767px) {
+    margin-top: 20px;
+    order: 1;
+  }
+}
+
+.avatarHolder {
+  display: block;
+}
+
+
+.avatarBigImg {
+  width: 100%;
+  height: auto;
+}
+
+.lead {
+  text-align: left;
+  width: 100%;
+  font-size: 18px;
+  line-height: 27px;
+  color: #616161;
+  margin-top: 0;
+  margin-bottom: 30px;
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.topic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  @media (max-width: 767px) {
+    margin-right: -10px;
+    justify-content: center;
+  }
+}
+
+.topicItem {
+  background-color: #a0a0a0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  flex: 1 1 auto;
+  align-self: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px !important;
+}
+
+.topicItem:nth-last-child(1) {
+  flex: 0 1 auto !important;
+}
+
+.topicItem:nth-last-child(2) {
+  flex: 0 1 auto !important;
+}
+
+.topicItem:nth-last-child(3) {
+  flex: 0 1 auto !important;
+}
+
+.back {
+  display: flex;
+  width: fit-content;
   max-width: 340px;
   padding: 0;
   border: 0;
@@ -20,43 +124,29 @@ width: fit-content;
   align-items: center;
   opacity: 0.5;
   transition: opacity .4s;
-  > span{
+
+  > span {
     margin-right: 5px;
     margin-top: 1px;
+  }
+
+  @media (max-width: 767px) {
+    margin: 0 auto;
   }
 }
 
 
-
-.back:hover{
+.back:hover {
   opacity: 0.8;
 }
 
-.content{
-  display:flex;
-}
-
-.h3{
-  color:$color-blue !important;
-  font-size: 54px;
-  margin-bottom: 15px;
-}
-
-.h4{
-  color:$color-black !important;
-  font-size: 33px;
-  margin-bottom: 17px;
-  font-weight: 700;
-  font-family: 'Roboto', sans-serif;
-}
-
-.source{
+.source {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-background-color: $color-blue;
-  border:0;
+  background-color: $color-blue;
+  border: 0;
   color: #ffffff;
   font-size: 15px;
   width: 115px;
@@ -68,12 +158,40 @@ background-color: $color-blue;
   transition: background-color .3s;
   box-shadow: 3px 4px 18px -1px rgba(0, 0, 0, 0);
   margin-bottom: 20px;
-  >span{
-     height: fit-content;
+  margin-top: 30px;
+  @media (max-width: 600px) {
+    margin-top: 40px;
+    font-size: 10px;
+  }
+
+  > span {
+    height: fit-content;
   }
 }
 
-.source:hover{
+.source:hover {
   background-color: $color-blue-dark;
   box-shadow: 3px 4px 18px -1px rgba(34, 60, 80, 0.2);
+}
+
+
+.h3 {
+  margin-top: 20px;
+  color: $color-blue !important;
+  font-size: 54px;
+  margin-bottom: 15px;
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.h4 {
+  color: $color-black !important;
+  font-size: 33px;
+  margin-bottom: 17px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  @media (max-width: 767px) {
+    text-align: center;
+  }
 }

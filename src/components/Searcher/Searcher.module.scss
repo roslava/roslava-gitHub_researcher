@@ -11,6 +11,7 @@
   background-color: $color-grey;
   align-items: center;
   padding: 30px;
+
   @media (max-width: 1440px) {
     margin-left: -20px;
     margin-right: -20px;
@@ -21,7 +22,18 @@
   display: flex;
   flex: 1 1 auto;
   height: fit-content;
-border: solid $color-grey-dark 1px;
+  border: solid $color-grey-dark 1px;
   justify-content: space-between;
+}
 
+.wrapper input {
+  width: 100%;
+
+}
+
+.wrapper input::placeholder {
+  @media (max-width: 600px) {
+    color: #ffffff;
+    display: none;
+  }
 }

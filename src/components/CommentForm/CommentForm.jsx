@@ -66,7 +66,6 @@ function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentA
             </div>
             <div style={{display: `${successVisibility}`}} className={classes.success}><p>Ваш комментарий добавлен.</p>
                 <p>Его можно прочитать</p><p>на странице репозитория.</p></div>
-
         </React.Fragment>
     )
 }

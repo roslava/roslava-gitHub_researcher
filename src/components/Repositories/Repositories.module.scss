@@ -1,7 +1,5 @@
 @import 'src/global_styles/colors.scss';
 
-
-
 .process{
   display: flex;
   align-items: center;
@@ -10,6 +8,11 @@
   min-width: 100%;
   padding-top: 60px;
   padding-bottom: 60px;
+  @media (max-width: 500px) {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .h3{

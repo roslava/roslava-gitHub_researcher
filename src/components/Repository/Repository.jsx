@@ -8,11 +8,11 @@ import {getRepository} from "../../api/RepositoryApi";
 import Container from '../Layout/Container/Container';
 import {useHistory} from "react-router-dom";
 import classes from './Repository.module.scss'
-import { MdOutlineArrowBack } from 'react-icons/md';
-import { DiGithubAlt } from 'react-icons/di';
+import {MdOutlineArrowBack} from 'react-icons/md';
+import {DiGithubAlt} from 'react-icons/di';
 import CommentsDisplay from '../CommentsDisplay/CommentsDisplay'
 
-const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepository}) => {
+const Repository = ({loading, selectedRepo, updateLoadingState, updateSelectedRepository}) => {
     let {owner} = useParams();
     let {name} = useParams();
     let history = useHistory();
@@ -53,45 +53,39 @@ const Repository = ({loading,selectedRepo,updateLoadingState,updateSelectedRepos
         return (
             <Container>
                 <div className={classes.block}>
-                    <button onClick={history.goBack} className={classes.back}> <span><MdOutlineArrowBack size={'20px'} fill={'#00A3FF'} /></span> Вернуться на страницу поиска</button>
+                    <button onClick={history.goBack} className={classes.back}><span><MdOutlineArrowBack size={'20px'}
+                                                                                                        fill={'#00A3FF'}/></span>Вернуться
+                        к поиску
+                    </button>
                     <div className={classes.content}>
-                    <div className="col-12 md:col-6 text-center md:text-left flex align-items-center">
-                        <section className="repo-description">
+                        <div className={classes.repoDescription}>
                             <div className={classes.h3}>{selectedRepo.name}</div>
-                            <div
-                                className="col-12 md:col-6 overflow-hidden repo-owner-image md-hidden lg-hidden xl-hidden">
-                                <img src={selectedRepo.owner.avatar_url} alt="small-avatar"
-                                     className="md:ml-auto block md:h-full repo-avatar"/>
+                            <span className={classes.h4}>{selectedRepo.owner.login}</span>
+                            <p className={classes.lead}>{selectedRepo.description}</p>
+                            <div className={classes.topic}>
+                                {selectedRepo.topics.map((topic) => <Chip key={topic} label={topic}
+                                                                          className={classes.topicItem}/>)}
                             </div>
-                            <span  className={classes.h4}>{selectedRepo.owner.login}</span>
-                            <p className="mt-0 mb-4 text-700 line-height-3">{selectedRepo.description}</p>
-                            <div className="flex align-items-center flex-wrap mb-3">
-                                {selectedRepo.topics.map((topic) => {
-                                    return (
-                                        <Chip key={topic} label={topic} className="mr-2 mb-2"/>
-                                    )
-                                })}
-                            </div>
-
                             <button className={classes.source}
-                                onClick={() => {
-                                selectRepository(selectedRepo);
-                            }}
-                            ><span><DiGithubAlt size={'60px'} fill={'#ffffff'} /></span>Посмотреть репозиторй</button>
-
-                        </section>
-                    </div>
-                    <div className="col-12 md:col-6 overflow-hidden repo-owner-image xs-hidden">
-                        <img src={selectedRepo.owner.avatar_url} alt="large-avatar"
-                             className="md:ml-auto block md:h-full repo-avatar"/>
-                    </div>
-                    </div>
-                    <button onClick={goBack} className={classes.back}> <span><MdOutlineArrowBack size={'20px'} fill={'#00A3FF'} /></span> Вернуться на страницу поиска</button>
+                                    onClick={() => {
+                                        selectRepository(selectedRepo);
+                                    }}
+                            ><span><DiGithubAlt size={'60px'} fill={'#ffffff'}/></span>Посмотреть репозиторй
+                            </button>
+                        </div>
+                        <div className={classes.avatarBigBlock}>
+                            <div className={classes.avatarHolder}>
+                                <img className={classes.avatarBigImg} src={selectedRepo.owner.avatar_url} alt="avatar"/>
                             </div>
-              <CommentsDisplay selectedRepo={selectedRepo}/>
-
+                        </div>
+                    </div>
+                    <CommentsDisplay selectedRepo={selectedRepo}/>
+                    <button onClick={history.goBack} className={classes.back}><span><MdOutlineArrowBack size={'20px'}
+                                                                                                        fill={'#00A3FF'}/></span>Вернуться
+                        к поиску
+                    </button>
+                </div>
             </Container>
-
         )
     } else if (loading) {
         return (
