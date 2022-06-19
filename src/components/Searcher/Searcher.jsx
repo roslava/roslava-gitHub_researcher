@@ -32,7 +32,7 @@ const Searcher = ({
         if (!query || query === inputVal || loading) {
             setSearchDisabled(true);
         } else {
-            if(query.length > 2){
+            if (query.length > 2) {
                 setSearchDisabled(false);
             }
 
@@ -57,7 +57,7 @@ const Searcher = ({
         event.preventDefault();
         if (event.code === "Enter" && query !== inputVal) {
             document.getElementById('repoSearch_list').style.display = 'none'
-           initiateSearch(query);
+            initiateSearch(query);
         }
     }
 
@@ -73,7 +73,7 @@ const Searcher = ({
         updateSelectedRepository({});
         updateFilterValue('');
         searchRepositories(inputValue);
-      }
+    }
 
     const searchRepositories = async (inputValue) => {
         let repos = [];
@@ -85,7 +85,7 @@ const Searcher = ({
         }
         history.push({search: params.toString()});
         await getRepositories(inputValue).then(response => {
-                if (response) {
+            if (response) {
                 repos = response;
                 if (response.length > 0) {
                     updateSearchHistory(inputValue);
@@ -95,10 +95,10 @@ const Searcher = ({
                 updateWarningState(null);
                 updateRepositories(repos);
                 updateFilteredRepos(repos);
-                    if (document.querySelector('.p-autocomplete-loader')) {
-                        document.querySelector('.p-autocomplete-loader').style.display = 'none'
-                    }
-              }
+                if (document.querySelector('.p-autocomplete-loader')) {
+                    document.querySelector('.p-autocomplete-loader').style.display = 'none'
+                }
+            }
         }).catch(error => {
             updateRepositories([]);
             updateFilteredRepos([]);

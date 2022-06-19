@@ -24,7 +24,7 @@ class Helper {
     }
 
     static idGenerator(subject) {
-        return subject+'_'+Date.now()
+        return subject + '_' + Date.now()
     }
 }
 

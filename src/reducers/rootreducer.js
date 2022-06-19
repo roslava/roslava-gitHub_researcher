@@ -231,9 +231,8 @@ const handlers = {
     },
 
 
-
 // !!!!
-    SET_STAR_CLASSES: (state=[], action) => {
+    SET_STAR_CLASSES: (state = [], action) => {
         const repoId = action.payload.repoIdStargazers
         const stylesS = action.payload.propertyStarsClasses
         return {
@@ -250,23 +249,12 @@ const handlers = {
 
                     }
                     : repository
-
-
             ),
         }
     },
 
 
-
-
-
-
-
-
-
-
-
-    SET_WATCHERS_CLASSES: (state=[], action) => {
+    SET_WATCHERS_CLASSES: (state = [], action) => {
         const repoId = action.payload.repoIdWatchers
         const stylesW = action.payload.propertyWatchersClasses
         return {
@@ -277,7 +265,7 @@ const handlers = {
                         ...repository,
                         propertyStyles: {
                             ...repository.propertyStyles,
-                                watchers: stylesW,
+                            watchers: stylesW,
 
                         }
 
@@ -286,16 +274,6 @@ const handlers = {
             ),
         }
     },
-
-
-
-
-
-
-
-
-
-
 
 
     // SET_WATCHERS_CLASSES: (state, action) => {

@@ -1,27 +1,28 @@
 .messages-container {
-	display: flex;
-	width: 100%;
-	justify-content: center;
-	.p-message {
-		width: 100%;
-	}
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .p-message {
+    width: 100%;
+  }
 }
 
 .p-message-wrapper {
-	justify-content: center;
+  justify-content: center;
 }
 
 .repository-toast {
-	z-index: 1020 !important;
+  z-index: 1020 !important;
 }
 
 .countdown-timer {
-	font-size: 16px !important;
-	font-weight: 700 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
 }
 
 .p-message-close.p-link {
-	display: none !important;
+  display: none !important;
 }
 
 // .display-message {
@@ -41,128 +42,128 @@
 // }
 
 .p-message .p-message-wrapper {
-	padding: 1.25rem 1.75rem;
-	width: 100%;
-	display: flex;
-	justify-content: center;
+  padding: 1.25rem 1.75rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .message-fragment {
-	width: 100% !important;
-	display: flex;
-	justify-content: center;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
 }
 
 .message-header {
-	width: 100% !important;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .message-content {
-	font-weight: 700 !important;
+  font-weight: 700 !important;
 }
 
 .message-counter {
-	width: 100% !important;
-	display: flex;
-	justify-content: center;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
 }
 
 .message-footer {
-	width: 100% !important;
-	display: flex;
-	justify-content: center;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 540px) {
-	.display-message {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
+  .display-message {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-	.display-message div {
-		width: 100%;
-	}
+  .display-message div {
+    width: 100%;
+  }
 
-	.p-message.p-message-error {
-		display: flex;
-		justify-content: center;
-		min-width: 100% !important;
-	}
+  .p-message.p-message-error {
+    display: flex;
+    justify-content: center;
+    min-width: 100% !important;
+  }
 }
 
 @media (min-width: 541px) and (max-width: 767px) {
-	.display-message {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
+  .display-message {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-	.display-message div {
-		width: 100%;
-	}
+  .display-message div {
+    width: 100%;
+  }
 
-	.p-message.p-message-error {
-		display: flex;
-		justify-content: center;
-		min-width: 100% !important;
-	}
+  .p-message.p-message-error {
+    display: flex;
+    justify-content: center;
+    min-width: 100% !important;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-	.display-message {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
+  .display-message {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-	.display-message div {
-		width: 80%;
-	}
+  .display-message div {
+    width: 80%;
+  }
 
-	.p-message.p-message-error {
-		display: flex;
-		justify-content: center;
-		min-width: 650px !important;
-	}
+  .p-message.p-message-error {
+    display: flex;
+    justify-content: center;
+    min-width: 650px !important;
+  }
 }
 
 @media (min-width: 1280px) and (max-width: 1919px) {
-	.display-message {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
+  .display-message {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-	.display-message div {
-		width: 50%;
-	}
+  .display-message div {
+    width: 50%;
+  }
 
-	.p-message.p-message-error {
-		display: flex;
-		justify-content: center;
-		min-width: 850px !important;
-	}
+  .p-message.p-message-error {
+    display: flex;
+    justify-content: center;
+    min-width: 850px !important;
+  }
 }
 
 @media (min-width: 1920px) {
-	.display-message {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
+  .display-message {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-	.display-message div {
-		width: 50%;
-	}
+  .display-message div {
+    width: 50%;
+  }
 
-	.p-message.p-message-error {
-		display: flex;
-		justify-content: center;
-		min-width: 850px !important;
-	}
+  .p-message.p-message-error {
+    display: flex;
+    justify-content: center;
+    min-width: 850px !important;
+  }
 }

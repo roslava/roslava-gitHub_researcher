@@ -2,13 +2,13 @@ import React from 'react';
 import RepositoryContainer from "../containers/RepositoryContainer";
 
 
+function Repository() {
 
-function Repository(){
-
-    return(
+    return (
         <main>
-                    <RepositoryContainer />
+            <RepositoryContainer/>
         </main>
-        )
+    )
 }
+
 export default Repository;

@@ -9,7 +9,6 @@ function CommentForm({curRepoId, setCommentFormHide, setCommentText, setCommentA
     let date = new Date();
 
 
-
     const [successVisibility, setSuccessVisibility] = useState('none')
 
     let currentCommentsId = Helper.idGenerator('comment');

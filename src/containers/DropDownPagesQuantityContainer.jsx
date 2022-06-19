@@ -11,6 +11,6 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => ({
     setQuantityOnPage: (repoQuantity) => dispatch(setQuantityOnPage(repoQuantity)),
- });
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(DropDownPagesQuantity);

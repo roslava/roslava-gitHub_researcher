@@ -19,7 +19,6 @@ export const getRepositories = (inputValue) => {
             if (response.status >= 200 && response.status < 300) {
 
 
-
                 if (response.data.items.length === 0) {
 
                     store.dispatch(updateWarningState("Не найдено ни одного репозитория. Попробуйте еще раз."));
@@ -30,8 +29,8 @@ export const getRepositories = (inputValue) => {
                     item.isCommentFormVisible = false
                     item.comments = {}
                     item.propertyStyles = {
-                            stargazers:[],
-                            watchers:[]
+                        stargazers: [],
+                        watchers: []
                     }
                 })
 

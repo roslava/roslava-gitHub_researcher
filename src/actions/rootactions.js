@@ -115,7 +115,6 @@ export const setWatchersCount = (repoId, countWatchers) => ({
 });
 
 
-
 export const setStarClasses = (repoId, stylesS) => ({
     type: "SET_STAR_CLASSES",
     payload: {

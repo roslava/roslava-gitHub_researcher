@@ -19,7 +19,7 @@ function CommentsDisplay({selectedRepo}) {
     })
 
 
-    if(currentRepositoryComments.length !== 0) {
+    if (currentRepositoryComments.length !== 0) {
 
         return (
             <div className={classes.block}>
@@ -51,8 +51,6 @@ function CommentsDisplay({selectedRepo}) {
     }
 
     return null
-
-
 
 
 }

@@ -1,71 +1,73 @@
 .p-toast {
-	width: 30rem !important;
-	opacity: 1.0 !important;
+  width: 30rem !important;
+  opacity: 1.0 !important;
 }
 
 .toast-title {
-	margin: 8px 0px !important;
+  margin: 8px 0px !important;
 }
 
 .repo-card-item {
-    background-color: #ffffff;
-    transition: background-color 0.5s;
+  background-color: #ffffff;
+  transition: background-color 0.5s;
 }
 
 .repo-card-item:hover {
-    cursor: pointer;
-    background-color: rgba(99, 102, 241, 0.3) !important;
+  cursor: pointer;
+  background-color: rgba(99, 102, 241, 0.3) !important;
 }
 
 
 .repo-card-footer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .repo-stat {
-    display: flex;
-    align-items: center;
-    i {
-        font-size: 20px;
-        margin: 0px 5px 0px 0px;
-    }
-    p {
-        font-size: 18px;
-        margin: 0px;
-    }
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 20px;
+    margin: 0px 5px 0px 0px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 0px;
+  }
 }
 
 .card-image img {
-    width: 2.5rem;
-    height: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 @media (max-width: 540px) {
-	.filter-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        padding: 0.5rem 0rem;
-    }
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 0rem;
+  }
 
-    .sort-select {
-        width: 33%;
-    }
+  .sort-select {
+    width: 33%;
+  }
 }
 
 @media (min-width: 541px) {
-	.filter-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        text-align: center;
-        padding: 0.5rem 0rem;
-    }
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0rem;
+  }
 }
 
 .sort-select span {
-    text-align: left !important;
+  text-align: left !important;
 }

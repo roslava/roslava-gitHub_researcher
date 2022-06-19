@@ -10,7 +10,6 @@ import Home from '../pages/Home';
 import Repository from '../pages/Repository'
 
 
-
 const store = initializeStore({...INITIALSTATE});
 
 const App = () => {

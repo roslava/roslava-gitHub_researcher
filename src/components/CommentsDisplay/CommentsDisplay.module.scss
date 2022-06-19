@@ -1,7 +1,7 @@
 @import 'src/global_styles/colors.scss';
 
-.block{
-background-color: rgba(245, 244, 244, 0.84);
+.block {
+  background-color: rgba(245, 244, 244, 0.84);
   padding: 40px;
   box-shadow: 0px 5px 9px -4px rgba(34, 60, 80, 0.43) inset;
   margin-bottom: 40px;
@@ -16,14 +16,14 @@ background-color: rgba(245, 244, 244, 0.84);
   }
 }
 
-.h3{
+.h3 {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 40px;
   color: $color-blue;
 }
 
-.info{
+.info {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
@@ -33,16 +33,16 @@ background-color: rgba(245, 244, 244, 0.84);
   line-height: 23px;
 }
 
-.author{
+.author {
   font-weight: 700;
   border: 0;
 }
 
-.comment{
+.comment {
 
 }
 
-.date{
-font-size: 13px;
+.date {
+  font-size: 13px;
   border: 0;
 }

@@ -1,9 +1,6 @@
 import React from "react";
 
-const PaginationLinks = ({repoQuantityPerPage, totalRepos, pageLinkSet}) =>
-{
-
-
+const PaginationLinks = ({repoQuantityPerPage, totalRepos, pageLinkSet}) => {
 
 
     const pageNumbers = []
@@ -19,7 +16,7 @@ const PaginationLinks = ({repoQuantityPerPage, totalRepos, pageLinkSet}) =>
                     pageNumbers.map(number => {
                             return (
                                 <li key={number}>
-                                    <a href="#" onClick={()=>pageLinkSet(number)}>
+                                    <a href="#" onClick={() => pageLinkSet(number)}>
                                         {number}
                                     </a>
                                 </li>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function ChangerPageNumber(setPagePaginator){
+function ChangerPageNumber(setPagePaginator) {
     setPagePaginator(3)
 }
 

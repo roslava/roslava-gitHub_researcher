@@ -46,43 +46,43 @@ const Paginator = ({
         });
 
 
-    if(!Helper.getLocalStorageData('currentPage') && page === 0){
+    if (!Helper.getLocalStorageData('currentPage') && page === 0) {
         setPage(1)
     }
 
-    if(Helper.getLocalStorageData('currentPage') && page === 0){
+    if (Helper.getLocalStorageData('currentPage') && page === 0) {
         setPage(Helper.getLocalStorageData('currentPage'))
     }
 
 
-    if(page > 1){
+    if (page > 1) {
         Helper.setLocalStorageData('currentPage', page)
-    }else if(page === 1 && Helper.getLocalStorageData('currentPage') ){
+    } else if (page === 1 && Helper.getLocalStorageData('currentPage')) {
         localStorage.removeItem('currentPage')
     }
 
 
-    function whatIfItIsReloads(){
-        if(Helper.getLocalStorageData('currentPage')){
-            setPage(Number(Helper.getLocalStorageData('currentPage' )))
-        }else if(!Helper.getLocalStorageData('currentPage')){
+    function whatIfItIsReloads() {
+        if (Helper.getLocalStorageData('currentPage')) {
+            setPage(Number(Helper.getLocalStorageData('currentPage')))
+        } else if (!Helper.getLocalStorageData('currentPage')) {
             setPage(1)
         }
     }
 
-    window.addEventListener('load', ()=>whatIfItIsReloads());
+    window.addEventListener('load', () => whatIfItIsReloads());
 
 
     const whenWasTheSearch = (dataFrom, inputVal, repositories) => {
         if (dataFrom === 'fromStore') {
             return (<div><p>Вы искали <span>{inputVal}</span></p>
                 <p>Количество найденных <span><br/></span> репозиториев: <span>{repositories.length}</span></p>
-                      </div>)
+            </div>)
         } else if (dataFrom === 'fromLocalStorage') {
             return (<div><p>Недавно вы искали <span>{Helper.getLocalStorageData('searchInputValue')}</span></p>
                 <p>Количество найденных репозиториев: <span>{Helper.getLocalStorageData('repositories').length}</span>
                 </p>
-                    </div>)
+            </div>)
         }
     }
 
@@ -127,7 +127,6 @@ const Paginator = ({
 
 
                 </div>
-
 
 
                 <div className={classes.searchDetails}>

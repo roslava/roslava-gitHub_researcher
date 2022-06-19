@@ -4,26 +4,7 @@ import Dropdown from "react-dropdown";
 import 'react-dropdown/style.css';
 
 
-
-
-
-const DropDownPagesQuantity = ({setQuantityOnPage,  repoQuantityPerPage}) =>{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const DropDownPagesQuantity = ({setQuantityOnPage, repoQuantityPerPage}) => {
 
 
     const options = [
@@ -31,21 +12,21 @@ const DropDownPagesQuantity = ({setQuantityOnPage,  repoQuantityPerPage}) =>{
     ]
 
 
-    function actions(opt){
+    function actions(opt) {
 
         setQuantityOnPage(parseInt(opt))
 
     }
 
-   return(
-       <div className={classes.dropdownwrapper}>
-           <Dropdown options={options}
-                     onChange={(options) => {
-                                actions(options.value)
-                     }}
-                     placeholder={repoQuantityPerPage}/>
-       </div>
-   )
+    return (
+        <div className={classes.dropdownwrapper}>
+            <Dropdown options={options}
+                      onChange={(options) => {
+                          actions(options.value)
+                      }}
+                      placeholder={repoQuantityPerPage}/>
+        </div>
+    )
 }
 
 export default DropDownPagesQuantity;

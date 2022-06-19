@@ -33,8 +33,6 @@ const Repositories = ({
     }
 
 
-
-
 // ***
 
     if (!loading && (!warningMessage || !errorMessage) && (repositories && repositories.length > 0)) {

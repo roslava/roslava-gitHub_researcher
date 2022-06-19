@@ -9,10 +9,7 @@ const mapStateToProps = (state) => ({
     currentCommentAuthor: state.currentCommentAuthor,
     comments: state.comments,
     commentsId: state.commentsId,
-  })
-
-
-
+})
 
 
 const mapDispatchToProps = (dispatch) => ({
