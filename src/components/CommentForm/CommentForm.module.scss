@@ -58,6 +58,7 @@
   margin: 0 0 15px;
   align-items: center;
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 .textarea {
@@ -74,6 +75,7 @@
   height: 66px;
   outline: 0;
   border: 0;
+  font-size: 16px;
 
   @media (max-width: 811px) {
     max-width: 100%;
