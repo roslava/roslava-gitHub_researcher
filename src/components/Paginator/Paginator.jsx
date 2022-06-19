@@ -56,22 +56,17 @@ const Paginator = ({
 
 
     if(page > 1){
-        console.log('записываю в локал сторадж')
         Helper.setLocalStorageData('currentPage', page)
     }else if(page === 1 && Helper.getLocalStorageData('currentPage') ){
-        console.log('ничего не записываю в локал сторадж, и удаляю его если существует')
         localStorage.removeItem('currentPage')
     }
 
 
     function whatIfItIsReloads(){
-        console.log('окно перезагружено')
         if(Helper.getLocalStorageData('currentPage')){
-            console.log('запись в локал сторадж существует')
             setPage(Number(Helper.getLocalStorageData('currentPage' )))
         }else if(!Helper.getLocalStorageData('currentPage')){
             setPage(1)
-            console.log('запись в локал сторадж не существует')
         }
     }
 

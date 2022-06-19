@@ -56,7 +56,8 @@ const Searcher = ({
     const keyUpAction = (event) => {
         event.preventDefault();
         if (event.code === "Enter" && query !== inputVal) {
-            initiateSearch(query);
+            document.getElementById('repoSearch_list').style.display = 'none'
+           initiateSearch(query);
         }
     }
 
@@ -72,7 +73,7 @@ const Searcher = ({
         updateSelectedRepository({});
         updateFilterValue('');
         searchRepositories(inputValue);
-    }
+      }
 
     const searchRepositories = async (inputValue) => {
         let repos = [];
@@ -94,7 +95,10 @@ const Searcher = ({
                 updateWarningState(null);
                 updateRepositories(repos);
                 updateFilteredRepos(repos);
-            }
+                    if (document.querySelector('.p-autocomplete-loader')) {
+                        document.querySelector('.p-autocomplete-loader').style.display = 'none'
+                    }
+              }
         }).catch(error => {
             updateRepositories([]);
             updateFilteredRepos([]);
